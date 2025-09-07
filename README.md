@@ -1,9 +1,9 @@
-# jd0062025.2
+Projeto Unity VR   Jogo escape room da Cabra Cabriola
 
 # Projeto 3D - Realidade Aumentada e Realidade Virtual para Jogos Digitais
 
 Este repositório contém o projeto desenvolvido durante as aulas da disciplina **RA e RV para Jogos Digitais**.  
-Aqui você encontrará o código-fonte, assets e atualizações organizadas **aula por aula**.
+Este repositorio é um Fork do repositorio do professor, aonde trabalharemos de agora em diante nele para criar um jogo em VR escape room 3D na Unity totalmente a parte do jogo que o professor esta criando no seu repositorio atual
 
 ---
 
@@ -16,69 +16,25 @@ Aqui você encontrará o código-fonte, assets e atualizações organizadas **au
   > ```bash
   > git lfs install
   > ```
+  >
+  > Importante! >> Quando voce clonar este repositorio no seu GitHub Desktop aparecerá uma mensagem perguntando se voce quer fazer o " Initialize Git LFS " ou a opcao " Not Now"  escolha a opcao "Initialize Git LFS"
+  > o que acontece em cada opcao
+  > Initialize Git LFS → vai configurar o Git LFS no seu fork local. Isso é necessário para você poder baixar e enviar arquivos grandes corretamente sem corromper nada.
+    Not now → vai pular a configuração do Git LFS. Se fizer isso, arquivos grandes podem não funcionar corretamente e você terá problemas se tentar adicionar ou modificar arquivos grandes.
+  
+    O que fazer: clique em Initialize Git LFS.
+  >
+  > Importante!  >> Quando voce abrir a Unity , ela mostrará uma mensagem sobre o  Meta XR Simulator, ele serve pra você testar o projeto em VR mesmo sem ter o óculos.
+  Aparecerá uma mensagem do Update Available, perguntando se voce quer fazer o Update, >> Cuidado << Não clique em Update
+  
+  Se você atualizar agora, pode mudar a versão do plugin do XR Simulator. Isso pode gerar incompatibilidade com o projeto do professor, e alguma coisa pode quebrar.
+  Se você não atualizar, o projeto funciona exatamente como o professor deixou. Você só não terá as melhorias da versão mais nova do plugin.
+  
+  Recomendação: não clique em atualizar( No caso não clique no Update)
+  > 
 
 ---
 
-## Como baixar o projeto
 
-### Opção 1 – Download direto
-1. Vá até a aba **Releases** aqui no GitHub.  
-2. Escolha a versão da aula (ex.: `Aula 02`, `Aula 03` etc.).  
-3. Baixe o arquivo `.zip` e extraia no seu computador.  
-4. Abra no **Unity Hub** → **Add Project from Disk** → selecione a pasta.
 
-### Opção 2 – Usando Git
-
-No terminal:
-```bash
-git clone https://github.com/fisocame/jd0062025.2.git
-cd jd0062025.2
-```
-
-Para mudar para uma aula específica:
-
-```bash
-git fetch --tags
-git checkout tags/v0.1-aula-01
-```
-
-## **Acompanhando Aula por Aula**
-
-Cada aula tem um checkpoint (tag) marcado como:
-
-> v0.1-aula-01 → Onde a gente parou na Aula 01
-
-> v0.2-aula-02 → Onde a gente parou na Aula 02
-
-> v0.3-aula-03 → Onde a gente parou na Aula 03
-
-Essas tags também estão publicadas como Releases → você pode baixar o .zip direto sem precisar usar Git.
-
-## **Fluxo de trabalho (para quem usa Git)**
-
-Atualizar para a última versão
-```bash
-git pull
-```
-Baixar versão de uma aula específica
-```bash
-git fetch --tags
-git checkout tags/v0.2-aula-02
-```
-Voltar para a versão atual (main)
-```bash
-git checkout main
-```
-
-## **Notas importantes**
-
-- Não edite nem envie nada para este repositório sem autorização.
-- Se quiser apenas estudar, use Download ZIP ou git clone em modo leitura.
-- As pastas Library, Temp, Build, Obj e Logs são geradas pelo Unity automaticamente e não estão incluídas aqui.
-
-## **Organização do professor**
-
-- Branch main: contém a versão estável consolidada.
-- Tags/Releases: checkpoints por aula.
-- Branches auxiliares podem ser criadas para conteúdos extras.
 
