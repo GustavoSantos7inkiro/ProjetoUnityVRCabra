@@ -16,8 +16,14 @@ Este repositorio é um Fork do repositorio do professor, aonde trabalharemos de 
   > ```bash
   > git lfs install
   > ```
-  >
-  > Importante! >> Quando voce clonar este repositorio no seu GitHub Desktop aparecerá uma mensagem perguntando se voce quer fazer o " Initialize Git LFS " ou a opcao " Not Now"  escolha a opcao "Initialize Git LFS"
+  
+  > Importante! >: Quando voce clonar este repositorio no seu GitHub Desktop aparecerá uma mensagem perguntando "How are you planning to use this fork?" Que traduzindo é "Como voce planeja usar este fork?"
+  > Aparecerá duas opcões , a primeira chamada de " To contribute to the parent project" e a segunda chamada de " For my own purposes", escolha a segunda oção, que traduzido é "Para meus proprios propositos"
+  >  a primeira opção se for escolhida vai acabar tentando editar o projeto original do repositorio do professor se ele permitir, e nós nao queremos isso , nem ele. Então escolha a segunda opção chamada "For my own purposes"
+
+
+
+  > Importante! >> Depois desse passo acima  aparecerá uma mensagem perguntando se voce quer fazer o " Initialize Git LFS " ou a opcao " Not Now"  escolha a opcao "Initialize Git LFS"
   > o que acontece em cada opcao
   > Initialize Git LFS → vai configurar o Git LFS no seu fork local. Isso é necessário para você poder baixar e enviar arquivos grandes corretamente sem corromper nada.
     Not now → vai pular a configuração do Git LFS. Se fizer isso, arquivos grandes podem não funcionar corretamente e você terá problemas se tentar adicionar ou modificar arquivos grandes.
