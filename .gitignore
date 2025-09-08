@@ -89,5 +89,11 @@ InitTestScene*.unity*
 # Substitua se algum plugin criar pasta diferente
 /[Aa]ssets/XR/PluginsCache/
 
-# UserSettings (já incluído, mas aqui reforçando)
-[Uu]ser[Ss]ettings/
+# ========================
+# Ignorar mudanças locais da Unity
+# ========================
+
+# Layouts e preferências locais do editor
+UserSettings/
+*.dwlt
+*.dwlt.meta
