@@ -48,11 +48,35 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.0.48f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\KTinteractiveProp\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualButton.cs" />
     <Compile Include="Assets\Free Wood Door Pack\Script\Door.cs" />
+    <Compile Include="Assets\KTinteractiveProp\StarterAssets\Mobile\Scripts\Utilities\MobileDisableAutoSwitchControls.cs" />
+    <Compile Include="Assets\Locker_HQ\Scripts\CameraFreeflight.cs" />
+    <Compile Include="Assets\KTinteractiveProp\StarterAssets\Mobile\Scripts\CanvasInputs\UICanvasControllerInput.cs" />
+    <Compile Include="Assets\KTinteractiveProp\StarterAssets\ThirdPersonController\Scripts\ThirdPersonController.cs" />
     <Compile Include="Assets\Free Wood Door Pack\Script\FPSController.cs" />
+    <Compile Include="Assets\KTinteractiveProp\Scripts\LightProp.cs" />
+    <Compile Include="Assets\KTinteractiveProp\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualTouchZone.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\KTinteractiveProp\StarterAssets\ThirdPersonController\Scripts\BasicRigidBodyPush.cs" />
+    <Compile Include="Assets\KTinteractiveProp\Scripts\LookMainCamera.cs" />
+    <Compile Include="Assets\KTinteractiveProp\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualJoystick.cs" />
+    <Compile Include="Assets\KTinteractiveProp\Scripts\AnimProp.cs" />
+    <Compile Include="Assets\KTinteractiveProp\StarterAssets\InputSystem\StarterAssetsInputs.cs" />
     <Compile Include="Assets\Free Wood Door Pack\Script\CameraOpenDoor.cs" />
+    <Compile Include="Assets\KTinteractiveProp\Scripts\SoundProp.cs" />
     <Compile Include="Assets\Oculus Hands\HandAnimation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Vefects\Candle VFX URP\Candles\Wick\Shaders\SH_Vefects_VFX_Wick_01.shader" />
+    <None Include="Assets\Vefects\Candle VFX URP\Shared\Shaders\SH_Vefects_Candle_Wax_01.shader" />
+    <None Include="Assets\Vefects\Candle VFX URP\Shared\Shaders\SH_Vefects_Candle_Wax_VC_01.shader" />
+    <None Include="Assets\Vefects\Candle VFX URP\_ Extra\Shaders\SH_Vefects_Extra_Billboard_01.shader" />
+    <None Include="Assets\Vefects\Candle VFX URP\Flames\Shaders\SH_Vefects_URP_Candle_Flame_01.shader" />
+    <None Include="Assets\Vefects\Candle VFX URP\Candles\Arcvhiz Glass Candle\Shaders\SH_Vefects_VFX_Glass_01.shader" />
+    <None Include="Assets\Vefects\Candle VFX URP\_ Extra\Shaders\SH_Vefects_Extra_Grid_01.shader" />
+    <None Include="Assets\Locker_HQ\install_RP_Versions.txt" />
+    <None Include="Assets\Vefects\Candle VFX URP\Smoke\Shaders\SH_Vefects_URP_Candle_Smoke_01.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
