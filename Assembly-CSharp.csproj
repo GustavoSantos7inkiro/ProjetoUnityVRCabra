@@ -68,8 +68,11 @@
     <Compile Include="Assets\Scripts\GameStartMenu.cs" />
     <Compile Include="Assets\KTinteractiveProp\Scripts\AnimProp.cs" />
     <Compile Include="Assets\KTinteractiveProp\StarterAssets\InputSystem\StarterAssetsInputs.cs" />
+    <Compile Include="Assets\Scripts\Slot.cs" />
     <Compile Include="Assets\Free Wood Door Pack\Script\CameraOpenDoor.cs" />
     <Compile Include="Assets\KTinteractiveProp\Scripts\SoundProp.cs" />
+    <Compile Include="Assets\Scripts\Disjuntor.cs" />
+    <Compile Include="Assets\Scripts\Fuzivel.cs" />
     <Compile Include="Assets\Oculus Hands\HandAnimation.cs" />
     <Compile Include="Assets\Scripts\FadeScreen.cs" />
     <Compile Include="Assets\Scripts\SetTurnTypeFromPlayerPref.cs" />

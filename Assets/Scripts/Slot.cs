@@ -2,31 +2,37 @@ using UnityEngine;
 
 public class SlotFusivel : MonoBehaviour
 {
-    private bool ocupado = false;   // se já tem um fusível aqui
-    private Disjuntor disjuntor;    // referência ao disjuntor principal
+    private bool ocupado = false;   // se jï¿½ tem um fusï¿½vel aqui
+    private Disjuntor disjuntor;    // referï¿½ncia ao disjuntor principal
 
     private void Start()
     {
         disjuntor = GetComponentInParent<Disjuntor>();
     }
 
-    private void OnTriggerEnter(Collider other)
+   private void OnTriggerEnter(Collider other)
+{
+    if (!ocupado && other.CompareTag("Fusivel"))
     {
-        if (!ocupado && other.CompareTag("Fusivel"))
-        {
-            // fixa o fusível na posição do slot
-            other.transform.position = transform.position;
-            other.transform.rotation = transform.rotation;
+        Fusivel fusivel = other.GetComponent<Fusivel>();
 
-            // desativa física (para não cair)
-            Rigidbody rb = other.GetComponent<Rigidbody>();
-            if (rb) rb.isKinematic = true;
+        // jÃ¡ foi colocado em outro slot?
+        if (fusivel != null && fusivel.colocado) return;
 
-            ocupado = true;
-            disjuntor.ContarFusivel();
+        // fixa o fusÃ­vel no slot
+        other.transform.position = transform.position;
+        other.transform.rotation = transform.rotation;
 
-            Debug.Log("Fusível colocado no slot!");
-        }
+        Rigidbody rb = other.GetComponent<Rigidbody>();
+        if (rb) rb.isKinematic = true;
+
+        ocupado = true;
+        if (fusivel != null) fusivel.colocado = true;
+
+        disjuntor.ContarFusivel();
+
+        Debug.Log("FusÃ­vel colocado no slot!");
     }
+}
 }
 
