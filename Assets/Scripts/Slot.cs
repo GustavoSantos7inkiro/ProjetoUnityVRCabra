@@ -2,37 +2,55 @@ using UnityEngine;
 
 public class SlotFusivel : MonoBehaviour
 {
-    private bool ocupado = false;   // se j� tem um fus�vel aqui
-    private Disjuntor disjuntor;    // refer�ncia ao disjuntor principal
+    private bool ocupado = false;
+    private Disjuntor disjuntor;
+
+    [Header("Feedback opcional")]
+    public AudioSource somEncaixe; // som de encaixe, se quiser usar
 
     private void Start()
     {
         disjuntor = GetComponentInParent<Disjuntor>();
     }
 
-   private void OnTriggerEnter(Collider other)
-{
-    if (!ocupado && other.CompareTag("Fusivel"))
+    private void OnTriggerEnter(Collider other)
     {
-        Fusivel fusivel = other.GetComponent<Fusivel>();
+        if (!ocupado && other.CompareTag("Fusivel"))
+        {
+            Fusivel fusivel = other.GetComponent<Fusivel>();
+            if (fusivel != null && fusivel.colocado) return;
 
-        // já foi colocado em outro slot?
-        if (fusivel != null && fusivel.colocado) return;
+            // encaixa fusível na posição/rotação do slot
+            fusivel.transform.position = transform.position;
+            fusivel.transform.rotation = transform.rotation;
 
-        // fixa o fusível no slot
-        other.transform.position = transform.position;
-        other.transform.rotation = transform.rotation;
+            // desativa física
+            Rigidbody rb = fusivel.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = true;
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+            }
 
-        Rigidbody rb = other.GetComponent<Rigidbody>();
-        if (rb) rb.isKinematic = true;
+            // NÃO faz SetParent! Mantém o fusível independente para não amassar
+            // fusivel.transform.SetParent(transform); <-- removido
 
-        ocupado = true;
-        if (fusivel != null) fusivel.colocado = true;
+            // mantém a escala original do fusível
+            // fusivel.transform.localScale permanece a do prefab
 
-        disjuntor.ContarFusivel();
+            // marca como ocupado
+            ocupado = true;
+            if (fusivel != null) fusivel.colocado = true;
 
-        Debug.Log("Fusível colocado no slot!");
+            // conta no disjuntor
+            disjuntor.ContarFusivel();
+
+            // toca som de encaixe se houver
+            if (somEncaixe != null)
+                somEncaixe.Play();
+
+            Debug.Log("Fusível colocado no slot!");
+        }
     }
 }
-}
-
