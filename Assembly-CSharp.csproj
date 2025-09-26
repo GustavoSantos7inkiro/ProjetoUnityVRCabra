@@ -55,6 +55,9 @@
     <Compile Include="Assets\KTinteractiveProp\StarterAssets\Mobile\Scripts\CanvasInputs\UICanvasControllerInput.cs" />
     <Compile Include="Assets\Scripts\UIAudio.cs" />
     <Compile Include="Assets\KTinteractiveProp\StarterAssets\ThirdPersonController\Scripts\ThirdPersonController.cs" />
+    <Compile Include="Assets\Scripts\ActivatorDebugInput.cs" />
+    <Compile Include="Assets\Scripts\DrawerController.cs" />
+    <Compile Include="Assets\Scripts\DoorController.cs" />
     <Compile Include="Assets\Free Wood Door Pack\Script\FPSController.cs" />
     <Compile Include="Assets\KTinteractiveProp\Scripts\LightProp.cs" />
     <Compile Include="Assets\Scripts\SceneTransitionManager.cs" />
@@ -67,6 +70,7 @@
     <Compile Include="Assets\Scripts\GameStartMenu.cs" />
     <Compile Include="Assets\KTinteractiveProp\Scripts\AnimProp.cs" />
     <Compile Include="Assets\KTinteractiveProp\StarterAssets\InputSystem\StarterAssetsInputs.cs" />
+    <Compile Include="Assets\Scripts\PressurePlateSimples.cs" />
     <Compile Include="Assets\Scripts\Slot.cs" />
     <Compile Include="Assets\Free Wood Door Pack\Script\CameraOpenDoor.cs" />
     <Compile Include="Assets\KTinteractiveProp\Scripts\SoundProp.cs" />
