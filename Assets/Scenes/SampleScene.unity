@@ -9731,7 +9731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20b9cb3197083c146b618f14b7720003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1476938412}
   listenKeyboard: 1
   listenQuestButtons: 1
 --- !u!4 &2054154784 stripped
