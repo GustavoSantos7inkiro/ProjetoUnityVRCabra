@@ -65,6 +65,7 @@
     <Compile Include="Assets\Free Wood Door Pack\Script\FPSController.cs" />
     <Compile Include="Assets\Scripts\Peca.cs" />
     <Compile Include="Assets\KTinteractiveProp\Scripts\LightProp.cs" />
+    <Compile Include="Assets\Scripts\SoundTimer.cs" />
     <Compile Include="Assets\Scripts\SceneTransitionManager.cs" />
     <Compile Include="Assets\KTinteractiveProp\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualTouchZone.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
