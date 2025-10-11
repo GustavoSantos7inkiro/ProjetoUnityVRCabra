@@ -73,7 +73,6 @@
     <Compile Include="Assets\KTinteractiveProp\Scripts\LookMainCamera.cs" />
     <Compile Include="Assets\KTinteractiveProp\StarterAssets\Mobile\Scripts\VirtualInputs\UIVirtualJoystick.cs" />
     <Compile Include="Assets\Scripts\GameStartMenu.cs" />
-    <Compile Include="Assets\KTinteractiveProp\Scripts\AnimProp.cs" />
     <Compile Include="Assets\KTinteractiveProp\StarterAssets\InputSystem\StarterAssetsInputs.cs" />
     <Compile Include="Assets\Scripts\PressurePlateSimples.cs" />
     <Compile Include="Assets\Scripts\Slot.cs" />

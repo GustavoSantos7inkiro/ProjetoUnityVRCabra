@@ -1,0 +1,5 @@
+C:/Users/guivn/OneDrive/Documentos/GitHub/ProjetoUnityVRCabra/.utmp/RelWithDebInfo/1z2n6j62/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/guivn/OneDrive/Documentos/GitHub/ProjetoUnityVRCabra/.utmp/RelWithDebInfo/1z2n6j62/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/guivn/OneDrive/Documentos/GitHub/ProjetoUnityVRCabra/.utmp/RelWithDebInfo/1z2n6j62/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/guivn/OneDrive/Documentos/GitHub/ProjetoUnityVRCabra/.utmp/RelWithDebInfo/1z2n6j62/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/guivn/OneDrive/Documentos/GitHub/ProjetoUnityVRCabra/.utmp/RelWithDebInfo/1z2n6j62/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir

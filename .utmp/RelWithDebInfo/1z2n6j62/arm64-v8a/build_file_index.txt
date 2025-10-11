@@ -1,0 +1,2 @@
+C:\Users\guivn\OneDrive\Documentos\GitHub\ProjetoUnityVRCabra\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\guivn\OneDrive\Documentos\GitHub\ProjetoUnityVRCabra\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt
