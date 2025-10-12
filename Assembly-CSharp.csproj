@@ -53,6 +53,7 @@
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Luz.cs" />
     <Compile Include="Assets\Locker_HQ\Scripts\CameraFreeflight.cs" />
+    <Compile Include="Assets\Scripts\PlayerCollisionTest.cs" />
     <Compile Include="Assets\Scripts\UIAudio.cs" />
     <Compile Include="Assets\Scripts\ActivatorDebugInput.cs" />
     <Compile Include="Assets\Scripts\DrawerController.cs" />
