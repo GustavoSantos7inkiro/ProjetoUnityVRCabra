@@ -14660,7 +14660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5813b48785324df4f92c86e140c86736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 954178721}
+  door: {fileID: 1121184495}
   displayText: {fileID: 426776562}
   code: 531
   rotationSpeed: 90
