@@ -3,16 +3,22 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class SlotPuzzle : MonoBehaviour
 {
-    [Header("ID do slot")]
-    public int idSlot; // define no inspector (ex: 10, 20, 30)
+    [Header("ID do Slot")]
+    [Tooltip("Número identificador do slot. Deve ser igual ao ID da peça correspondente.")]
+    public int idSlot;
+
     private bool preenchido = false;
 
-    [Header("Manager do puzzle")]
-    public PuzzleManager manager; // arraste o PuzzleManager aqui no inspector
+    [Header("Manager do Puzzle")]
+    [Tooltip("Arraste aqui o objeto que possui o script PuzzleManager.")]
+    public PuzzleManager manager;
 
-    [Header("Transform final da peça")]
-    public Vector3 correctPosition;         // posição final da peça
-    public Quaternion correctRotation;      // rotação final da peça
+    [Header("Transform Final da Peça")]
+    [Tooltip("Posição final da peça (em coordenadas de mundo).")]
+    public Vector3 correctPosition;
+
+    [Tooltip("Rotação final da peça (em Euler, convertida automaticamente).")]
+    public Vector3 correctEulerRotation;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -21,31 +27,27 @@ public class SlotPuzzle : MonoBehaviour
         PecaPuzzle peca = other.GetComponent<PecaPuzzle>();
         if (peca != null && peca.idPeca == idSlot)
         {
-            // Move a peça para a posição e rotação corretas
+            // Move e rotaciona a peça para a posição correta no mundo
             other.transform.position = correctPosition;
-            other.transform.rotation = correctRotation;
+            other.transform.rotation = Quaternion.Euler(correctEulerRotation);
 
-            // Desativa a interação se tiver XR Grab Interactable
+            // Desativa o XRGrabInteractable (para não poder pegar novamente)
             XRGrabInteractable grab = other.GetComponent<XRGrabInteractable>();
             if (grab != null)
-            {
                 grab.enabled = false;
-            }
 
-            // Ajusta Rigidbody
+            // Ajusta Rigidbody para travar a peça
             Rigidbody rb = other.GetComponent<Rigidbody>();
             if (rb != null)
-            {
-                rb.isKinematic = true; // trava a peça
-            }
+                rb.isKinematic = true;
 
             preenchido = true;
 
-            // Conta acerto no manager
+            // Conta acerto no PuzzleManager
             if (manager != null)
                 manager.ContarAcerto();
 
-            Debug.Log($"Peça {peca.idPeca} encaixada no slot {idSlot}!");
+            Debug.Log($"✅ Peça {peca.idPeca} encaixada no slot {idSlot} na posição {correctPosition} e rotação {correctEulerRotation}!");
         }
     }
 }
