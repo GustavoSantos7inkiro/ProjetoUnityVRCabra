@@ -1,35 +1,47 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class SlotPuzzle : MonoBehaviour
 {
-    public int idSlot; // define no inspector (10, 20, 30...)
+    [Header("ID do slot")]
+    public int idSlot; // define no inspector (ex: 10, 20, 30)
     private bool preenchido = false;
-    private PuzzleManager manager;
 
-    private void Start()
-    {
-        manager = GetComponentInParent<PuzzleManager>();
-    }
+    [Header("Manager do puzzle")]
+    public PuzzleManager manager; // arraste o PuzzleManager aqui no inspector
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!preenchido && other.GetComponent<PecaPuzzle>() != null)
+        if (preenchido) return;
+
+        PecaPuzzle peca = other.GetComponent<PecaPuzzle>();
+        if (peca != null && peca.idPeca == idSlot)
         {
-            PecaPuzzle peca = other.GetComponent<PecaPuzzle>();
+            // Encaixa a peça na posição do slot
+            other.transform.position = transform.position;
+            other.transform.rotation = transform.rotation;
 
-            if (peca.idPeca == idSlot) // checa se a pe�a corresponde ao slot
+            // Se tiver XR Grab Interactable, desativa a interação
+            XRGrabInteractable grab = other.GetComponent<XRGrabInteractable>();
+            if (grab != null)
             {
-                // trava a pe�a no slot
-                other.transform.position = transform.position;
-                other.transform.rotation = transform.rotation;
-
-                Rigidbody rb = other.GetComponent<Rigidbody>();
-                if (rb) rb.isKinematic = true;
-
-                preenchido = true;
-                manager.ContarAcerto();
-                Debug.Log("Pe�a correta encaixada!");
+                grab.enabled = false;
             }
+
+            // Ajusta Rigidbody
+            Rigidbody rb = other.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = true; // trava a peça
+            }
+
+            preenchido = true;
+
+            // Contar acerto
+            if (manager != null)
+                manager.ContarAcerto();
+
+            Debug.Log($"Peça {peca.idPeca} encaixada no slot {idSlot}!");
         }
     }
 }
