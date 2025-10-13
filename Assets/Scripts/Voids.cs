@@ -10,6 +10,10 @@ public class SlotPuzzle : MonoBehaviour
     [Header("Manager do puzzle")]
     public PuzzleManager manager; // arraste o PuzzleManager aqui no inspector
 
+    [Header("Transform final da peça")]
+    public Vector3 correctPosition;         // posição final da peça
+    public Quaternion correctRotation;      // rotação final da peça
+
     private void OnTriggerEnter(Collider other)
     {
         if (preenchido) return;
@@ -17,11 +21,11 @@ public class SlotPuzzle : MonoBehaviour
         PecaPuzzle peca = other.GetComponent<PecaPuzzle>();
         if (peca != null && peca.idPeca == idSlot)
         {
-            // Encaixa a peça na posição do slot
-            other.transform.position = transform.position;
-            other.transform.rotation = transform.rotation;
+            // Move a peça para a posição e rotação corretas
+            other.transform.position = correctPosition;
+            other.transform.rotation = correctRotation;
 
-            // Se tiver XR Grab Interactable, desativa a interação
+            // Desativa a interação se tiver XR Grab Interactable
             XRGrabInteractable grab = other.GetComponent<XRGrabInteractable>();
             if (grab != null)
             {
@@ -37,7 +41,7 @@ public class SlotPuzzle : MonoBehaviour
 
             preenchido = true;
 
-            // Contar acerto
+            // Conta acerto no manager
             if (manager != null)
                 manager.ContarAcerto();
 
