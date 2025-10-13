@@ -64,9 +64,14 @@ public class CofreController : MonoBehaviour
         // Teste no editor
         if (Application.isEditor && !isOpen)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha5)) PressButton("5");
-            if (Input.GetKeyDown(KeyCode.Alpha3)) PressButton("3");
-            if (Input.GetKeyDown(KeyCode.Alpha1)) PressButton("1");
+        if (Input.GetKeyDown(KeyCode.Alpha1)) PressButton("1");
+        if (Input.GetKeyDown(KeyCode.Alpha2)) PressButton("2");
+        if (Input.GetKeyDown(KeyCode.Alpha3)) PressButton("3");
+        if (Input.GetKeyDown(KeyCode.Alpha4)) PressButton("4");
+        if (Input.GetKeyDown(KeyCode.Alpha5)) PressButton("5");
+        if (Input.GetKeyDown(KeyCode.Alpha6)) PressButton("6");
+        if (Input.GetKeyDown(KeyCode.Alpha7)) PressButton("7");
+        if (Input.GetKeyDown(KeyCode.Alpha8)) PressButton("8");
         }
     }
 }
