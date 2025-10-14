@@ -1,4 +1,4 @@
-using UnityEngine;
+using UnityEngine; 
 using TMPro;
 
 public class CofreController : MonoBehaviour
@@ -44,6 +44,13 @@ public class CofreController : MonoBehaviour
             if (currentInput == code)
             {
                 isOpen = true;
+
+                // 🧹 Limpa o display assim que o código estiver correto
+                if (displayText != null)
+                    displayText.text = "";
+
+                // (opcional) também zera o texto interno
+                currentInput = "";
             }
             else
             {
@@ -61,17 +68,17 @@ public class CofreController : MonoBehaviour
             door.rotation = Quaternion.RotateTowards(door.rotation, openRotation, rotationSpeed * Time.deltaTime);
         }
 
-        // Teste no editor
+        // Teste no editor (teclado)
         if (Application.isEditor && !isOpen)
         {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) PressButton("1");
-        if (Input.GetKeyDown(KeyCode.Alpha2)) PressButton("2");
-        if (Input.GetKeyDown(KeyCode.Alpha3)) PressButton("3");
-        if (Input.GetKeyDown(KeyCode.Alpha4)) PressButton("4");
-        if (Input.GetKeyDown(KeyCode.Alpha5)) PressButton("5");
-        if (Input.GetKeyDown(KeyCode.Alpha6)) PressButton("6");
-        if (Input.GetKeyDown(KeyCode.Alpha7)) PressButton("7");
-        if (Input.GetKeyDown(KeyCode.Alpha8)) PressButton("8");
+            if (Input.GetKeyDown(KeyCode.Alpha1)) PressButton("1");
+            if (Input.GetKeyDown(KeyCode.Alpha2)) PressButton("2");
+            if (Input.GetKeyDown(KeyCode.Alpha3)) PressButton("3");
+            if (Input.GetKeyDown(KeyCode.Alpha4)) PressButton("4");
+            if (Input.GetKeyDown(KeyCode.Alpha5)) PressButton("5");
+            if (Input.GetKeyDown(KeyCode.Alpha6)) PressButton("6");
+            if (Input.GetKeyDown(KeyCode.Alpha7)) PressButton("7");
+            if (Input.GetKeyDown(KeyCode.Alpha8)) PressButton("8");
         }
     }
 }
