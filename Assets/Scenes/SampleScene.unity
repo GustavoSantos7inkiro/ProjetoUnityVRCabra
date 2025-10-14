@@ -4052,6 +4052,7 @@ MonoBehaviour:
   totalSlots: 6
   rewardLight: {fileID: 1394265334}
   caixa: {fileID: 5925217013644577984}
+  tampaCaixa: {fileID: 2558173430841492698}
 --- !u!1 &635782199
 GameObject:
   m_ObjectHideFlags: 0
@@ -16881,7 +16882,7 @@ GameObject:
   - component: {fileID: 5089128429053119906}
   - component: {fileID: 6497485412944407005}
   m_Layer: 0
-  m_Name: kasha.001
+  m_Name: Tampa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17788,7 +17789,7 @@ GameObject:
   - component: {fileID: 5468034498688068226}
   - component: {fileID: 5468034498688068225}
   m_Layer: 0
-  m_Name: tanpa
+  m_Name: Caixa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
