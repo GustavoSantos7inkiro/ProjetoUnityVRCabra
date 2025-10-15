@@ -1,68 +1,83 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
-public class Cronometro : MonoBehaviour
+public class CronometroVR : MonoBehaviour
 {
     [Header("Referências")]
     public Transform playerHead;        // Main Camera (filha do XR Origin)
     public Canvas canvas;               // Canvas que contém o TMP Text
-    public TextMeshProUGUI tempoText;   // O texto que mostra o tempo
+    public TextMeshProUGUI tempoText;   // Texto do cronômetro
+    public Light luz1;
+    public Light luz2;
+    public GameObject cabraJumpscarePrefab;
 
-    [Header("Offset")]
-    public Vector3 offset = new Vector3(0.7f, -0.07f, 0.5f); // Usa seus valores personalizados
+    [Header("Offset do cronômetro")]
+    public Vector3 cronometroOffset = new Vector3(0.7f, -0.07f, 0.5f); // posição fixa do cronômetro no VR
 
-    [Header("Tempo inicial (em segundos)")]
-    public float tempoInicial = 900f; // 15 minutos = 900 segundos
+    [Header("Offset da cabra")]
+    public Vector3 cabraOffset = new Vector3(0f, -0.07f, 0.5f); // posição da cabra na frente do jogador
 
-    private float tempoRestante;
+    [Header("Fade das luzes")]
+    public float fadeDuration = 10f; // 10 segundos
+
+    [Header("Cronômetro")]
+    public float tempoSegundos = 15 * 60f; // 15 minutos
     private bool rodando = true;
-    private bool luzesApagadas = false;
-
-    void Start()
-    {
-        tempoRestante = tempoInicial;
-    }
 
     void Update()
     {
         if (!rodando) return;
 
-        // Conta regressivamente
-        tempoRestante -= Time.deltaTime;
-        if (tempoRestante <= 0f)
-        {
-            tempoRestante = 0f;
-            rodando = false;
-            if (!luzesApagadas)
-            {
-                ApagarLuzes();
-                luzesApagadas = true;
-            }
-        }
+        // Contagem regressiva
+        tempoSegundos -= Time.deltaTime;
+        if (tempoSegundos < 0f) tempoSegundos = 0f;
 
-        // Atualiza o texto
-        int minutos = Mathf.FloorToInt(tempoRestante / 60f);
-        int segundos = Mathf.FloorToInt(tempoRestante % 60f);
+        int minutos = Mathf.FloorToInt(tempoSegundos / 60f);
+        int segundos = Mathf.FloorToInt(tempoSegundos % 60f);
         tempoText.text = string.Format("{0:00}:{1:00}", minutos, segundos);
 
-        // Mantém o cronômetro fixo na frente do jogador no VR
+        // Mantém o canvas na frente do jogador
         if (playerHead != null && canvas != null)
         {
-            canvas.transform.position = playerHead.position + playerHead.TransformDirection(offset);
+            canvas.transform.position = playerHead.position + playerHead.TransformDirection(cronometroOffset);
             canvas.transform.rotation = Quaternion.LookRotation(canvas.transform.position - playerHead.position);
+        }
+
+        // Quando chega a 00:00
+        if (tempoSegundos <= 0f)
+        {
+            rodando = false;
+            StartCoroutine(ApagarLuzesEJumpscare());
         }
     }
 
-    void ApagarLuzes()
+    IEnumerator ApagarLuzesEJumpscare()
     {
-        // Encontra e apaga todas as luzes da cena
-        Light[] luzes = FindObjectsOfType<Light>();
-        foreach (Light luz in luzes)
+        float t = 0f;
+        float intensidadeInicial1 = luz1.intensity;
+        float intensidadeInicial2 = luz2.intensity;
+
+        // Fade out das luzes
+        while (t < fadeDuration)
         {
-            luz.enabled = false;
+            t += Time.deltaTime;
+            float fator = 1f - t / fadeDuration;
+            if (luz1 != null) luz1.intensity = intensidadeInicial1 * fator;
+            if (luz2 != null) luz2.intensity = intensidadeInicial2 * fator;
+            yield return null;
         }
 
-        Debug.Log("⏰ Tempo esgotado! Luzes apagadas!");
+        if (luz1 != null) luz1.enabled = false;
+        if (luz2 != null) luz2.enabled = false;
+
+        // Instancia a cabra na frente do jogador
+        if (cabraJumpscarePrefab != null && playerHead != null)
+        {
+            Vector3 posJumpscare = playerHead.position + playerHead.TransformDirection(cabraOffset);
+            GameObject cabra = Instantiate(cabraJumpscarePrefab, posJumpscare, Quaternion.LookRotation(playerHead.forward));
+            cabra.transform.SetParent(playerHead, true); // gruda na cabeça do jogador
+        }
     }
 
     public void PararCronometro()
@@ -72,8 +87,7 @@ public class Cronometro : MonoBehaviour
 
     public void ReiniciarCronometro()
     {
-        tempoRestante = tempoInicial;
+        tempoSegundos = 15 * 60f;
         rodando = true;
-        luzesApagadas = false;
     }
 }

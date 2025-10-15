@@ -7450,7 +7450,13 @@ MonoBehaviour:
   playerHead: {fileID: 2060719764}
   canvas: {fileID: 1007620982}
   tempoText: {fileID: 806732789}
-  offset: {x: 0.7, y: -0.07, z: 0.5}
+  luz1: {fileID: 1634071067}
+  luz2: {fileID: 443340644}
+  cabraJumpscarePrefab: {fileID: 525626317}
+  cronometroOffset: {x: 0.7, y: -0.07, z: 0.5}
+  cabraOffset: {x: 0, y: 0, z: 2}
+  fadeDuration: 5
+  tempoSegundos: 10
 --- !u!1001 &1015620107
 PrefabInstance:
   m_ObjectHideFlags: 0
