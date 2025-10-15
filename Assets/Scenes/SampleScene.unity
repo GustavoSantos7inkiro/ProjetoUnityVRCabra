@@ -3163,8 +3163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b1a09825dd55a46b281367544fac3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1405801272}
-  interval: 120
+  audioSource: {fileID: 910263483}
+  berroSimples: {fileID: 8300000, guid: 40c7190fb737acf4fac15b676492bcaf, type: 3}
+  berroGrande: {fileID: 8300000, guid: 41e1b82c1f9882648a1707572be15c55, type: 3}
+  intervalo: 60
 --- !u!1 &583467107
 GameObject:
   m_ObjectHideFlags: 0
@@ -7203,7 +7205,7 @@ MonoBehaviour:
   canvasCronometro: {fileID: 1007620982}
   tempoText: {fileID: 806732789}
   cronometroOffset: {x: 0.7, y: -0.07, z: 0.5}
-  tempoSegundos: 15
+  tempoSegundos: 900
   luz1: {fileID: 1634071067}
   luz2: {fileID: 443340644}
   fadeDuration: 3
