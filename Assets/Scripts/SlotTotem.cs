@@ -13,6 +13,10 @@ public class SlotTotem : MonoBehaviour
     [Tooltip("Arraste aqui o objeto que controla o puzzle geral (se houver).")]
     public PuzzleManagerTotem manager;
 
+    [Header("Luz para acender (opcional)")]
+    [Tooltip("Arraste aqui a luz que será ativada quando o Totem 3 for encaixado.")]
+    public Light luzTotem3;
+
     private Vector3 correctPosition;
     private Quaternion correctRotation;
 
@@ -34,6 +38,10 @@ public class SlotTotem : MonoBehaviour
                 correctRotation = new Quaternion(2.298011e-8f, 0.7933533f, -2.994826e-8f, -0.6087615f);
                 break;
         }
+
+        // Garante que a luz comece apagada
+        if (luzTotem3 != null)
+            luzTotem3.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -60,6 +68,13 @@ public class SlotTotem : MonoBehaviour
                 rb.isKinematic = true;
 
             preenchido = true;
+
+            // 🔆 Se este for o slot 3 e a luz existir, acende a luz
+            if (idSlot == 3 && luzTotem3 != null)
+            {
+                luzTotem3.enabled = true;
+                Debug.Log("💡 Luz do Totem 3 acesa!");
+            }
 
             // Notifica o manager se houver
             if (manager != null)
