@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\PuzzleManagerTotem.cs" />
     <Compile Include="Assets\Scripts\DrawerController.cs" />
     <Compile Include="Assets\Scripts\DoorController.cs" />
+    <Compile Include="Assets\Scripts\Cronometro.cs" />
     <Compile Include="Assets\Scripts\Quadro.cs" />
     <Compile Include="Assets\Free Wood Door Pack\Script\FPSController.cs" />
     <Compile Include="Assets\Scripts\Peca.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Assets\Scripts\GameStartMenu.cs" />
     <Compile Include="Assets\Scripts\PressurePlateSimples.cs" />
     <Compile Include="Assets\Scripts\Slot.cs" />
+    <Compile Include="Assets\Scripts\CronometroSeguindo.cs" />
     <Compile Include="Assets\Free Wood Door Pack\Script\CameraOpenDoor.cs" />
     <Compile Include="Assets\Scripts\Disjuntor.cs" />
     <Compile Include="Assets\Scripts\Fuzivel.cs" />
