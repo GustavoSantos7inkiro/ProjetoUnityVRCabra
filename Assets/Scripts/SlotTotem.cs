@@ -13,12 +13,28 @@ public class SlotTotem : MonoBehaviour
     [Tooltip("Arraste aqui o objeto que controla o puzzle geral (se houver).")]
     public PuzzleManagerTotem manager;
 
-    [Header("Transform Final do Totem")]
-    [Tooltip("Posição final do totem (em coordenadas de mundo).")]
-    public Vector3 correctPosition;
+    private Vector3 correctPosition;
+    private Quaternion correctRotation;
 
-    [Tooltip("Rotação final do totem (em Quaternion, use os valores do JSON do World Transform).")]
-    public Quaternion correctRotation;
+    private void Start()
+    {
+        // Configura automaticamente os valores corretos pelo idSlot
+        switch (idSlot)
+        {
+            case 1:
+                correctPosition = new Vector3(8.144384f, 1.315682f, -0.022334f);
+                correctRotation = new Quaternion(-9.770124e-9f, 0.965926f, -3.64627e-8f, 0.2588185f);
+                break;
+            case 2:
+                correctPosition = new Vector3(9.444384f, 1.315682f, -0.132334f);
+                correctRotation = new Quaternion(-3.774895e-8f, 0f, 0f, 1f);
+                break;
+            case 3:
+                correctPosition = new Vector3(8.694384f, 1.325682f, 0.987666f);
+                correctRotation = new Quaternion(2.298011e-8f, 0.7933533f, -2.994826e-8f, -0.6087615f);
+                break;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
