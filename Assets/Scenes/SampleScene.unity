@@ -5876,8 +5876,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4290099588
+  m_fontColor: {r: 0.51739943, g: 0.7264151, b: 0.709734, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5894,8 +5894,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 120
-  m_fontSizeBase: 120
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8412,8 +8412,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a074238faf33b064fba20fe64fe5f0e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textoCronometro: {fileID: 806732789}
-  iniciarAutomaticamente: 1
+  playerHead: {fileID: 2060719764}
+  canvas: {fileID: 1007620982}
+  tempoText: {fileID: 806732789}
+  offset: {x: 0.7, y: -0.07, z: 0.5}
 --- !u!1001 &1015620107
 PrefabInstance:
   m_ObjectHideFlags: 0

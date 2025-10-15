@@ -1,52 +1,47 @@
 using UnityEngine;
-using TMPro; // Para TextMeshPro
+using TMPro;
 
 public class Cronometro : MonoBehaviour
 {
-    [Header("Referências de UI")]
-    public TextMeshProUGUI textoCronometro; // Arraste o TextMeshPro do Canvas aqui
+    [Header("Referências")]
+    public Transform playerHead;        // Main Camera (filha do XR Origin)
+    public Canvas canvas;               // Canvas que contém o TMP Text
+    public TextMeshProUGUI tempoText;  // O texto que mostra o tempo
 
-    [Header("Configurações")]
-    public bool iniciarAutomaticamente = true;
+    [Header("Offset")]
+    public Vector3 offset = new Vector3(0.3f, 0.25f, 0.5f); // X = direita, Y = acima, Z = à frente
 
-    private float tempo = 0f;
-    private bool rodando = false;
-
-    void Start()
-    {
-        if (iniciarAutomaticamente)
-            IniciarCronometro();
-    }
+    private float tempoSegundos = 0f;
+    private bool rodando = true;
 
     void Update()
     {
         if (!rodando) return;
 
-        tempo += Time.deltaTime;
-        AtualizarTexto();
+        // Atualiza o tempo
+        tempoSegundos += Time.deltaTime;
+        int minutos = Mathf.FloorToInt(tempoSegundos / 60f);
+        int segundos = Mathf.FloorToInt(tempoSegundos % 60f);
+        tempoText.text = string.Format("{0:00}:{1:00}", minutos, segundos);
+
+        // Mantém o canvas na frente do jogador
+        if (playerHead != null && canvas != null)
+        {
+            canvas.transform.position = playerHead.position + playerHead.TransformDirection(offset);
+            canvas.transform.rotation = Quaternion.LookRotation(canvas.transform.position - playerHead.position);
+        }
     }
 
-    public void IniciarCronometro()
-    {
-        rodando = true;
-    }
-
+    // Para o cronômetro
     public void PararCronometro()
     {
         rodando = false;
     }
 
-    public void ResetarCronometro()
+    // Reinicia o cronômetro
+    public void ReiniciarCronometro()
     {
-        tempo = 0f;
-        AtualizarTexto();
-    }
-
-    private void AtualizarTexto()
-    {
-        int minutos = Mathf.FloorToInt(tempo / 60f);
-        int segundos = Mathf.FloorToInt(tempo % 60f);
-        int centesimos = Mathf.FloorToInt((tempo * 100) % 100);
-        textoCronometro.text = $"{minutos:00}:{segundos:00}:{centesimos:00}";
+        tempoSegundos = 0f;
+        rodando = true;
     }
 }
