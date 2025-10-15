@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 
-public class CronometroVR : MonoBehaviour
+public class Cronometro : MonoBehaviour
 {
     [Header("Referências")]
     public Transform playerHead;        // Main Camera (filha do XR Origin)
@@ -19,10 +19,10 @@ public class CronometroVR : MonoBehaviour
     public Vector3 cabraOffset = new Vector3(0f, -0.07f, 0.5f); // posição da cabra na frente do jogador
 
     [Header("Fade das luzes")]
-    public float fadeDuration = 10f; // 10 segundos
+    public float fadeDuration = 10f; // duração do fade em segundos
 
     [Header("Cronômetro")]
-    public float tempoSegundos = 15 * 60f; // 15 minutos
+    public float tempoSegundos = 15 * 60f; // 15 minutos padrão, editável no Inspector
     private bool rodando = true;
 
     void Update()
@@ -55,8 +55,8 @@ public class CronometroVR : MonoBehaviour
     IEnumerator ApagarLuzesEJumpscare()
     {
         float t = 0f;
-        float intensidadeInicial1 = luz1.intensity;
-        float intensidadeInicial2 = luz2.intensity;
+        float intensidadeInicial1 = luz1 != null ? luz1.intensity : 0f;
+        float intensidadeInicial2 = luz2 != null ? luz2.intensity : 0f;
 
         // Fade out das luzes
         while (t < fadeDuration)
@@ -74,20 +74,31 @@ public class CronometroVR : MonoBehaviour
         // Instancia a cabra na frente do jogador
         if (cabraJumpscarePrefab != null && playerHead != null)
         {
-            Vector3 posJumpscare = playerHead.position + playerHead.TransformDirection(cabraOffset);
-            GameObject cabra = Instantiate(cabraJumpscarePrefab, posJumpscare, Quaternion.LookRotation(playerHead.forward));
-            cabra.transform.SetParent(playerHead, true); // gruda na cabeça do jogador
+            GameObject cabraInstance = Instantiate(cabraJumpscarePrefab, Vector3.zero, Quaternion.identity);
+            CabraJumpscare cabraScript = cabraInstance.GetComponent<CabraJumpscare>();
+
+            // Posiciona a cabra
+            cabraInstance.transform.position = playerHead.position + playerHead.TransformDirection(cabraOffset);
+            cabraInstance.transform.rotation = Quaternion.LookRotation(playerHead.forward);
+            cabraInstance.transform.SetParent(playerHead, true); // gruda na cabeça do jogador
+
+            // Ativa o jumpscare (toca o som)
+            if (cabraScript != null)
+                cabraScript.AtivarJumpscare();
         }
     }
 
+    // Para o cronômetro
     public void PararCronometro()
     {
         rodando = false;
     }
 
+    // Reinicia o cronômetro
     public void ReiniciarCronometro()
     {
-        tempoSegundos = 15 * 60f;
         rodando = true;
+        // Mantém o valor definido no Inspector
+        // tempoSegundos permanece o valor que você quiser para testes
     }
 }

@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\PuzzleManagerTotem.cs" />
     <Compile Include="Assets\Scripts\DrawerController.cs" />
     <Compile Include="Assets\Scripts\DoorController.cs" />
+    <Compile Include="Assets\Scripts\CabraJumpscare.cs" />
     <Compile Include="Assets\Scripts\Cronometro.cs" />
     <Compile Include="Assets\Scripts\Quadro.cs" />
     <Compile Include="Assets\Free Wood Door Pack\Script\FPSController.cs" />
