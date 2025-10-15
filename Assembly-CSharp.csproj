@@ -51,12 +51,15 @@
     <Compile Include="Assets\Scripts\CofreController.cs" />
     <Compile Include="Assets\Scripts\Voids.cs" />
     <Compile Include="Assets\Free Wood Door Pack\Script\Door.cs" />
+    <Compile Include="Assets\Scripts\Totem.cs" />
+    <Compile Include="Assets\Scripts\SlotTotem.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Luz.cs" />
     <Compile Include="Assets\Locker_HQ\Scripts\CameraFreeflight.cs" />
     <Compile Include="Assets\Scripts\PlayerCollisionTest.cs" />
     <Compile Include="Assets\Scripts\UIAudio.cs" />
     <Compile Include="Assets\Scripts\ActivatorDebugInput.cs" />
+    <Compile Include="Assets\Scripts\PuzzleManagerTotem.cs" />
     <Compile Include="Assets\Scripts\DrawerController.cs" />
     <Compile Include="Assets\Scripts\DoorController.cs" />
     <Compile Include="Assets\Scripts\Quadro.cs" />
