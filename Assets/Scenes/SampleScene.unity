@@ -14275,6 +14275,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalSlots: 3
+  acertos: 0
+  slotsTotem:
+  - {fileID: 963326450}
+  - {fileID: 636475036}
+  - {fileID: 1824228689}
+  luzesParaApagar:
+  - {fileID: 1634071067}
+  - {fileID: 443340644}
+  tempoFade: 2.5
 --- !u!1 &1680636786
 GameObject:
   m_ObjectHideFlags: 0

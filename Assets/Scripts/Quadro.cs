@@ -30,7 +30,7 @@ public class PuzzleManager : MonoBehaviour
             Debug.Log("🎉 Quebra-cabeça resolvido!");
 
             // Acende a luz
-            if (rewardLight != null)
+            //if (rewardLight != null)
                 rewardLight.enabled = true;
 
             // Ativa a caixa
