@@ -7,7 +7,7 @@ public class SlotTotem : MonoBehaviour
     [Tooltip("Número identificador do slot. Deve ser igual ao ID do totem correspondente.")]
     public int idSlot;
 
-    private bool preenchido = false;
+    public bool preenchido = false;
 
     [Header("Manager do Puzzle (opcional)")]
     [Tooltip("Arraste aqui o objeto que controla o puzzle geral (se houver).")]

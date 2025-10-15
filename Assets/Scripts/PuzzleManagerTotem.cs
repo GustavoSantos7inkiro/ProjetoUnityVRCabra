@@ -1,68 +1,66 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class PuzzleManagerTotem : MonoBehaviour
 {
     [Header("Configuração do Puzzle")]
-    [Tooltip("Quantos totens precisam ser encaixados nos slots.")]
-    public int totalSlots = 3;
-    [HideInInspector] public int acertos = 0;
+    public int totalSlots = 3;            // Número de totens
+    private int acertos = 0;              // Contador de totens encaixados
 
-    [Header("Referência dos Slots")]
-    [Tooltip("Arraste aqui todos os slots de totem da cena.")]
-    public SlotTotem[] slotsTotem;
+    [Header("Luzes do ambiente")]
+    public Light[] lightsToFade;          // Arraste aqui as luzes que devem apagar
+    public float fadeDuration = 2f;       // Duração do fade em segundos
 
-    [Header("Luzes que serão apagadas")]
-    [Tooltip("Arraste aqui as luzes que devem apagar com fade quando o puzzle for concluído.")]
-    public Light[] luzesParaApagar;
+    [Header("Cabra e Canvas Fim")]
+    public GameObject cabra;              // Arraste a cabra
+    public GameObject canvasFim;          // Canvas do "FIM" em world space
 
-    [Header("Configuração do Fade")]
-    [Tooltip("Tempo em segundos para o fade out das luzes.")]
-    public float tempoFade = 2.5f;
-
-    private bool puzzleResolvido = false;
-
-    private void Start()
-    {
-        if (slotsTotem == null || slotsTotem.Length == 0)
-            slotsTotem = FindObjectsOfType<SlotTotem>();
-    }
-
-    // Chamado pelos slots quando um totem é corretamente encaixado
     public void ContarAcerto()
     {
         acertos++;
-        Debug.Log("Totem encaixado! Total: " + acertos + "/" + totalSlots);
+        Debug.Log($"Totens encaixados: {acertos}/{totalSlots}");
 
-        if (!puzzleResolvido && acertos >= totalSlots)
+        if (acertos >= totalSlots)
         {
-            puzzleResolvido = true;
-            Debug.Log("✅ Puzzle dos Totens resolvido!");
-            StartCoroutine(ApagarLuzes());
+            StartCoroutine(ApagarLuzesEMostrarFim());
         }
     }
 
-    // Coroutine para apagar as luzes com fade out suave
-    private IEnumerator ApagarLuzes()
+    private IEnumerator ApagarLuzesEMostrarFim()
     {
-        foreach (Light luz in luzesParaApagar)
+        float timer = 0f;
+        Light[] allLights = lightsToFade;
+
+        // Salva intensidade original
+        float[] originalIntensities = new float[allLights.Length];
+        for (int i = 0; i < allLights.Length; i++)
+            originalIntensities[i] = allLights[i].intensity;
+
+        // Fade out
+        while (timer < fadeDuration)
         {
-            if (luz == null) continue;
-
-            float intensidadeInicial = luz.intensity;
-            float t = 0f;
-
-            while (t < tempoFade)
+            timer += Time.deltaTime;
+            for (int i = 0; i < allLights.Length; i++)
             {
-                t += Time.deltaTime;
-                luz.intensity = Mathf.Lerp(intensidadeInicial, 0f, t / tempoFade);
-                yield return null;
+                if (allLights[i] != null)
+                    allLights[i].intensity = Mathf.Lerp(originalIntensities[i], 0f, timer / fadeDuration);
             }
-
-            luz.intensity = 0f;
-            luz.enabled = false;
+            yield return null;
         }
 
-        Debug.Log("💡 Todas as luzes foram apagadas com sucesso!");
+        // Garante intensidade zero
+        for (int i = 0; i < allLights.Length; i++)
+        {
+            if (allLights[i] != null)
+                allLights[i].intensity = 0f;
+        }
+
+        // Desativa a cabra
+        if (cabra != null)
+            cabra.SetActive(false);
+
+        // Ativa o Canvas FIM
+        if (canvasFim != null)
+            canvasFim.SetActive(true);
     }
 }
