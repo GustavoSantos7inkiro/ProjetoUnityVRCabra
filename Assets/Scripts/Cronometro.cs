@@ -5,25 +5,37 @@ using System.Collections;
 public class Cronometro : MonoBehaviour
 {
     [Header("Referências")]
-    public Transform playerHead;        // Main Camera (filha do XR Origin)
-    public Canvas canvas;               // Canvas que contém o TMP Text
-    public TextMeshProUGUI tempoText;   // Texto do cronômetro
-    public Light luz1;
-    public Light luz2;
-    public GameObject cabraJumpscarePrefab;
-
-    [Header("Offset do cronômetro")]
-    public Vector3 cronometroOffset = new Vector3(0.7f, -0.07f, 0.5f); // posição fixa do cronômetro no VR
-
-    [Header("Offset da cabra")]
-    public Vector3 cabraOffset = new Vector3(0f, -0.07f, 0.5f); // posição da cabra na frente do jogador
-
-    [Header("Fade das luzes")]
-    public float fadeDuration = 10f; // duração do fade em segundos
+    public Transform playerHead;        
 
     [Header("Cronômetro")]
-    public float tempoSegundos = 15 * 60f; // 15 minutos padrão, editável no Inspector
+    public Canvas canvasCronometro;
+    public TextMeshProUGUI tempoText;
+    public Vector3 cronometroOffset = new Vector3(0.7f, -0.07f, 0.5f);
+    public float tempoSegundos = 900f; // 15 minutos
+
+    [Header("Luzes e Fade")]
+    public Light luz1;
+    public Light luz2;
+    public float fadeDuration = 10f;
+
+    [Header("Jumpscare Cabra")]
+    public GameObject cabraJumpscarePrefab;
+    public Vector3 cabraOffset = new Vector3(0f, -0.07f, 0.5f);
+
+    [Header("Mensagem FIM")]
+    public Canvas canvasFim;
+    public TextMeshProUGUI fimText;
+    public Vector3 fimOffset = new Vector3(-0.5f, 0.3f, 0.5f);
+
     private bool rodando = true;
+
+    void Start()
+    {
+        if (canvasFim != null)
+            canvasFim.gameObject.SetActive(false);
+        if (fimText != null)
+            fimText.gameObject.SetActive(false);
+    }
 
     void Update()
     {
@@ -33,18 +45,29 @@ public class Cronometro : MonoBehaviour
         tempoSegundos -= Time.deltaTime;
         if (tempoSegundos < 0f) tempoSegundos = 0f;
 
-        int minutos = Mathf.FloorToInt(tempoSegundos / 60f);
-        int segundos = Mathf.FloorToInt(tempoSegundos % 60f);
-        tempoText.text = string.Format("{0:00}:{1:00}", minutos, segundos);
-
-        // Mantém o canvas na frente do jogador
-        if (playerHead != null && canvas != null)
+        // Atualiza o texto do cronômetro
+        if (tempoText != null)
         {
-            canvas.transform.position = playerHead.position + playerHead.TransformDirection(cronometroOffset);
-            canvas.transform.rotation = Quaternion.LookRotation(canvas.transform.position - playerHead.position);
+            int minutos = Mathf.FloorToInt(tempoSegundos / 60f);
+            int segundos = Mathf.FloorToInt(tempoSegundos % 60f);
+            tempoText.text = string.Format("{0:00}:{1:00}", minutos, segundos);
         }
 
-        // Quando chega a 00:00
+        // Mantém o canvas do cronômetro na frente do jogador
+        if (playerHead != null && canvasCronometro != null)
+        {
+            canvasCronometro.transform.position = playerHead.position + playerHead.TransformDirection(cronometroOffset);
+            canvasCronometro.transform.rotation = Quaternion.LookRotation(canvasCronometro.transform.position - playerHead.position);
+        }
+
+        // Mantém o canvas FIM na frente do jogador
+        if (playerHead != null && canvasFim != null)
+        {
+            canvasFim.transform.position = playerHead.position + playerHead.TransformDirection(fimOffset);
+            canvasFim.transform.rotation = Quaternion.LookRotation(canvasFim.transform.position - playerHead.position);
+        }
+
+        // Chegou a 00:00
         if (tempoSegundos <= 0f)
         {
             rodando = false;
@@ -54,11 +77,11 @@ public class Cronometro : MonoBehaviour
 
     IEnumerator ApagarLuzesEJumpscare()
     {
+        // Fade das luzes
         float t = 0f;
-        float intensidadeInicial1 = luz1 != null ? luz1.intensity : 0f;
-        float intensidadeInicial2 = luz2 != null ? luz2.intensity : 0f;
+        float intensidadeInicial1 = luz1 != null ? luz1.intensity : 1f;
+        float intensidadeInicial2 = luz2 != null ? luz2.intensity : 1f;
 
-        // Fade out das luzes
         while (t < fadeDuration)
         {
             t += Time.deltaTime;
@@ -74,31 +97,33 @@ public class Cronometro : MonoBehaviour
         // Instancia a cabra na frente do jogador
         if (cabraJumpscarePrefab != null && playerHead != null)
         {
-            GameObject cabraInstance = Instantiate(cabraJumpscarePrefab, Vector3.zero, Quaternion.identity);
-            CabraJumpscare cabraScript = cabraInstance.GetComponent<CabraJumpscare>();
+            Vector3 posJumpscare = playerHead.position + playerHead.TransformDirection(cabraOffset);
+            GameObject cabra = Instantiate(cabraJumpscarePrefab, posJumpscare, Quaternion.LookRotation(playerHead.forward));
+            cabra.transform.SetParent(playerHead, true);
 
-            // Posiciona a cabra
-            cabraInstance.transform.position = playerHead.position + playerHead.TransformDirection(cabraOffset);
-            cabraInstance.transform.rotation = Quaternion.LookRotation(playerHead.forward);
-            cabraInstance.transform.SetParent(playerHead, true); // gruda na cabeça do jogador
-
-            // Ativa o jumpscare (toca o som)
-            if (cabraScript != null)
-                cabraScript.AtivarJumpscare();
+            CabraJumpscare jumpscareScript = cabra.GetComponent<CabraJumpscare>();
+            if (jumpscareScript != null)
+            {
+                jumpscareScript.playerHead = playerHead;
+                if (jumpscareScript.gritoCabra != null)
+                    jumpscareScript.AtivarJumpscare();
+                else
+                    Debug.LogWarning("Grito da cabra não atribuído no prefab!");
+            }
         }
+
+        // Ativa o Canvas e o texto FIM
+        if (canvasFim != null) canvasFim.gameObject.SetActive(true);
+        if (fimText != null) fimText.gameObject.SetActive(true);
     }
 
-    // Para o cronômetro
     public void PararCronometro()
     {
         rodando = false;
     }
 
-    // Reinicia o cronômetro
     public void ReiniciarCronometro()
     {
         rodando = true;
-        // Mantém o valor definido no Inspector
-        // tempoSegundos permanece o valor que você quiser para testes
     }
 }
