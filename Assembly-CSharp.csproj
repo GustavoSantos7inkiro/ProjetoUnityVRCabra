@@ -52,6 +52,7 @@
     <Compile Include="Assets\Free Wood Door Pack\Script\Door.cs" />
     <Compile Include="Assets\Scripts\Totem.cs" />
     <Compile Include="Assets\Scripts\SlotTotem.cs" />
+    <Compile Include="Assets\Scripts\ConfreControladorBotaoclicavel.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Luz.cs" />
     <Compile Include="Assets\Locker_HQ\Scripts\CameraFreeflight.cs" />
@@ -66,7 +67,9 @@
     <Compile Include="Assets\Scripts\Cronometro.cs" />
     <Compile Include="Assets\Scripts\Quadro.cs" />
     <Compile Include="Assets\Free Wood Door Pack\Script\FPSController.cs" />
+    <Compile Include="Assets\Scripts\CofreBotao.cs" />
     <Compile Include="Assets\Scripts\Peca.cs" />
+    <Compile Include="Assets\Scripts\ShortRangePull.cs" />
     <Compile Include="Assets\Scripts\SoundTimer.cs" />
     <Compile Include="Assets\Scripts\SceneTransitionManager.cs" />
     <Compile Include="Assets\Scripts\SetOptionFromUI.cs" />
