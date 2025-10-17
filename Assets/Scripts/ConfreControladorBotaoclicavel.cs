@@ -42,28 +42,32 @@ public class CofreControllerXR : MonoBehaviour
     }
 
     public void PressButton(string number)
+{
+    Debug.Log("PressButton chamado com: " + number);
+
+    if (isOpen) return;
+
+    currentInput += number;
+    if (displayText != null)
+        displayText.text = currentInput;
+
+    if (currentInput.Length == code.Length)
     {
-        if (isOpen) return;
-
-        currentInput += number;
-        if (displayText != null)
-            displayText.text = currentInput;
-
-        if (currentInput.Length == code.Length)
+        if (currentInput == code)
         {
-            if (currentInput == code)
-            {
-                isOpen = true;
-                if (displayText != null) displayText.text = "";
-                currentInput = "";
-            }
-            else
-            {
-                if (displayText != null) displayText.text = "Error";
-                currentInput = "";
-            }
+            isOpen = true;
+            if (displayText != null) displayText.text = "";
+            currentInput = "";
+            Debug.Log("Cofre aberto!");
+        }
+        else
+        {
+            if (displayText != null) displayText.text = "Error";
+            currentInput = "";
+            Debug.Log("Código errado");
         }
     }
+}
 
     void Update()
     {

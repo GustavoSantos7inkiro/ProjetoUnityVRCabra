@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Peca.cs" />
     <Compile Include="Assets\Scripts\ShortRangePull.cs" />
     <Compile Include="Assets\Scripts\SoundTimer.cs" />
+    <Compile Include="Assets\Scripts\RayDebugUI.cs" />
     <Compile Include="Assets\Scripts\SceneTransitionManager.cs" />
     <Compile Include="Assets\Scripts\SetOptionFromUI.cs" />
     <Compile Include="Assets\Scripts\GameStartMenu.cs" />
