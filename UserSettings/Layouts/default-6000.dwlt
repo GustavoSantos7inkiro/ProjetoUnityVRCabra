@@ -488,7 +488,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 217}
     m_SelectedIDs: f6c50000
     m_LastClickedID: 50678
-    m_ExpandedIDs: 000000008ec5000090c5000092c5000094c5000096c5000098c500009ac500009cc500009ec50000a0c50000a2c50000a4c50000a6c50000a8c50000aac50000acc50000aec50000b0c50000b2c50000
+    m_ExpandedIDs: 00000000a2c50000a4c50000a6c50000a8c50000aac50000acc50000aec50000b0c50000b2c50000b4c50000b6c50000b8c50000bac50000bcc50000bec50000c0c50000c2c50000c4c50000c6c50000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -517,7 +517,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008ec5000090c5000092c5000094c5000096c5000098c500009ac500009cc500009ec50000a0c50000a2c50000a4c50000a6c50000a8c50000aac50000acc50000aec50000b0c50000b2c50000
+    m_ExpandedIDs: 00000000a2c50000a4c50000a6c50000a8c50000aac50000acc50000aec50000b0c50000b2c50000b4c50000b6c50000b8c50000bac50000bcc50000bec50000c0c50000c2c50000c4c50000c6c50000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1185,9 +1185,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 36.36519, y: -20.26145, z: 4.9094343}
+    m_Target: {x: -10.813462, y: -13.378415, z: -15.63277}
     speed: 2
-    m_Value: {x: 13.233187, y: 1.8293351, z: -9.880038}
+    m_Value: {x: 36.36519, y: -20.26145, z: 4.9094343}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1233,17 +1233,17 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.2618298, y: 0.6257358, z: -0.23679596, w: 0.69631803}
+    m_Target: {x: -0.1027475, y: 0.88350224, z: -0.22478363, w: -0.3992143}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0, w: 1}
+    m_Value: {x: 0.2618298, y: 0.6257358, z: -0.23679596, w: 0.69631803}
   m_Size:
-    m_Target: 16.411985
+    m_Target: 16.37875
     speed: 2
-    m_Value: 3.0813577
+    m_Value: 16.411985
   m_Ortho:
     m_Target: 0
     speed: 2
-    m_Value: 1
+    m_Value: 0
   m_CameraSettings:
     m_Speed: 0.94052994
     m_SpeedNormalized: 0.46999997

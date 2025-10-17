@@ -3016,7 +3016,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 484777347}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
   m_Name: 
@@ -3844,7 +3844,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.8070926, z: -0, w: 0.59042495}
   m_LocalPosition: {x: 5.931, y: 1.435, z: 0.434}
-  m_LocalScale: {x: 3.4447386, y: 2.6463985, z: 1}
+  m_LocalScale: {x: 2.5051517, y: 2.6463985, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1405801273}
@@ -8753,10 +8753,10 @@ MonoBehaviour:
   canvasCronometro: {fileID: 1007620982}
   tempoText: {fileID: 806732789}
   cronometroOffset: {x: 0.7, y: -0.07, z: 0.5}
-  tempoSegundos: 600
+  tempoSegundos: 900
   luz1: {fileID: 1634071067}
   luz2: {fileID: 443340644}
-  fadeDuration: 3
+  fadeDuration: 5
   cabraJumpscarePrefab: {fileID: 525626317}
   cabraOffset: {x: 0, y: -0.07, z: 1.9}
   canvasFim: {fileID: 1960492029}
@@ -9651,7 +9651,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114239283}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
   m_Name: 
@@ -10036,7 +10036,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114239283}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d10770296f16f04983d8d5325726f75, type: 3}
   m_Name: 
