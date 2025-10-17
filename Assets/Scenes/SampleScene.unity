@@ -222,7 +222,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20123922}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28df0d09d073d1e43a3960f02e57d954, type: 3}
   m_Name: 
@@ -271,7 +271,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 20123926}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3031819289907996871}
+        m_TargetAssemblyTypeName: CofreControllerXR, Assembly-CSharp
+        m_MethodName: PressButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &20123926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1482,7 +1494,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300619473}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28df0d09d073d1e43a3960f02e57d954, type: 3}
   m_Name: 
@@ -1531,7 +1543,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 300619477}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3031819289907996871}
+        m_TargetAssemblyTypeName: CofreControllerXR, Assembly-CSharp
+        m_MethodName: PressButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 5
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &300619477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3418,7 +3442,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506442509}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28df0d09d073d1e43a3960f02e57d954, type: 3}
   m_Name: 
@@ -3467,7 +3491,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 506442513}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3031819289907996871}
+        m_TargetAssemblyTypeName: CofreControllerXR, Assembly-CSharp
+        m_MethodName: PressButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 3
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &506442513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4361,7 +4397,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587959247}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28df0d09d073d1e43a3960f02e57d954, type: 3}
   m_Name: 
@@ -4410,7 +4446,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 587959251}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3031819289907996871}
+        m_TargetAssemblyTypeName: CofreControllerXR, Assembly-CSharp
+        m_MethodName: PressButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 7
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &587959251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11349,7 +11397,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218960201}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28df0d09d073d1e43a3960f02e57d954, type: 3}
   m_Name: 
@@ -11398,7 +11446,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1218960205}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3031819289907996871}
+        m_TargetAssemblyTypeName: CofreControllerXR, Assembly-CSharp
+        m_MethodName: PressButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1218960205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14712,7 +14772,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627724049}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28df0d09d073d1e43a3960f02e57d954, type: 3}
   m_Name: 
@@ -14761,7 +14821,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1627724053}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3031819289907996871}
+        m_TargetAssemblyTypeName: CofreControllerXR, Assembly-CSharp
+        m_MethodName: PressButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 4
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1627724053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16811,7 +16883,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853297972}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28df0d09d073d1e43a3960f02e57d954, type: 3}
   m_Name: 
@@ -16860,7 +16932,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1853297976}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3031819289907996871}
+        m_TargetAssemblyTypeName: CofreControllerXR, Assembly-CSharp
+        m_MethodName: PressButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 6
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1853297976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18825,7 +18909,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139223038}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28df0d09d073d1e43a3960f02e57d954, type: 3}
   m_Name: 
@@ -18874,7 +18958,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2139223042}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3031819289907996871}
+        m_TargetAssemblyTypeName: CofreControllerXR, Assembly-CSharp
+        m_MethodName: PressButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 8
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2139223042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20128,7 +20224,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &2582311342220640152
 GameObject:
   m_ObjectHideFlags: 0
