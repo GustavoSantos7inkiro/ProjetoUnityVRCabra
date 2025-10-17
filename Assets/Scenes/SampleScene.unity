@@ -928,7 +928,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &203134235
 BoxCollider:
@@ -1679,11 +1679,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7dcb5b10616f0384ba1a395786849364, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.52
+      value: 0.577
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7dcb5b10616f0384ba1a395786849364, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.28
+      value: -1.2746
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7dcb5b10616f0384ba1a395786849364, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2727,7 +2727,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &439389234
 BoxCollider:
@@ -3163,7 +3163,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 96079e9f36b5b6c4bb6027b8fa6bbb1e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3844,7 +3844,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.8070926, z: -0, w: 0.59042495}
   m_LocalPosition: {x: 5.931, y: 1.435, z: 0.434}
-  m_LocalScale: {x: 2.5051517, y: 2.6463985, z: 1}
+  m_LocalScale: {x: 1.8285605, y: 2.6463985, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1405801273}
@@ -5256,7 +5256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &727918709
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8756,7 +8756,7 @@ MonoBehaviour:
   tempoSegundos: 900
   luz1: {fileID: 1634071067}
   luz2: {fileID: 443340644}
-  fadeDuration: 5
+  fadeDuration: 3
   cabraJumpscarePrefab: {fileID: 525626317}
   cabraOffset: {x: 0, y: -0.07, z: 1.9}
   canvasFim: {fileID: 1960492029}
@@ -9798,7 +9798,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 96079e9f36b5b6c4bb6027b8fa6bbb1e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12367,7 +12367,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1376643103
 BoxCollider:
@@ -14347,7 +14347,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1603758942
 BoxCollider:
@@ -15324,8 +15324,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.0032648651, y: 0.00549817, z: 0.0034146581}
-  m_Center: {x: 0.00006197959, y: 0.000049574075, z: 0.0036972766}
+  m_Size: {x: 0.0032648651, y: 0.0054308567, z: 0.0034146581}
+  m_Center: {x: 0.00006197959, y: 0.00008323014, z: 0.0036972766}
 --- !u!114 &1649953463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18493,7 +18493,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1943463974
 BoxCollider:
@@ -20691,7 +20691,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &2582311342220640152
 GameObject:
@@ -20900,7 +20900,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &3031819289907996871
 MonoBehaviour:
@@ -24126,7 +24126,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &7873887598964725672
 GameObject:
@@ -24164,8 +24164,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.7600002, z: 1.5399998}
-  m_Center: {x: 0, y: 1.4599998, z: -0.000000056433624}
+  m_Size: {x: 1, y: 2.1068468, z: 1.5399998}
+  m_Center: {x: 0, y: 1.133423, z: -0.000000056433624}
 --- !u!23 &7985558734076504996
 MeshRenderer:
   m_ObjectHideFlags: 0
