@@ -4,18 +4,18 @@ using TMPro;
 public class CofreControllerXR : MonoBehaviour
 {
     [Header("Partes do Cofre")]
-    public Transform door;                   // Porta que vai abrir
-    public TextMeshProUGUI displayText;          // Texto do display
+    public Transform door; // Porta que vai abrir
+    public TextMeshProUGUI displayText; // Texto do display
 
     [Header("Botões do Cofre")]
-    public CofreBotaoXR[] botoes;            // Referência aos 8 botões
+    public CofreBotaoXR[] botoes; // Referência aos 8 botões
 
     [Header("Código do Cofre")]
-    public string code = "531";              // Código correto
+    public string code = "531"; // Código correto
 
     [Header("Rotação da Porta")]
-    public float rotationSpeed = 90f;        // Velocidade da porta
-    public float rotationAngle = 90f;        // Ângulo que a porta abre
+    public float rotationSpeed = 90f;
+    public float rotationAngle = 90f;
 
     private string currentInput = "";
     private bool isOpen = false;
@@ -33,7 +33,7 @@ public class CofreControllerXR : MonoBehaviour
         if (displayText != null)
             displayText.text = "";
 
-        // Liga os botões a este cofre
+        // Configura cada botão para este cofre
         foreach (var botao in botoes)
         {
             if (botao != null)
@@ -41,33 +41,44 @@ public class CofreControllerXR : MonoBehaviour
         }
     }
 
+    // Chamado por cada botão
     public void PressButton(string number)
-{
-    Debug.Log("PressButton chamado com: " + number);
-
-    if (isOpen) return;
-
-    currentInput += number;
-    if (displayText != null)
-        displayText.text = currentInput;
-
-    if (currentInput.Length == code.Length)
     {
-        if (currentInput == code)
+        if (isOpen) return;
+
+        currentInput += number;
+
+        if (displayText != null)
+            displayText.text = currentInput;
+
+        if (currentInput.Length == code.Length)
         {
-            isOpen = true;
-            if (displayText != null) displayText.text = "";
-            currentInput = "";
-            Debug.Log("Cofre aberto!");
-        }
-        else
-        {
-            if (displayText != null) displayText.text = "Error";
-            currentInput = "";
-            Debug.Log("Código errado");
+            if (currentInput == code)
+            {
+                AbrirCofreAutomatico();
+            }
+            else
+            {
+                if (displayText != null)
+                    displayText.text = "Error";
+                currentInput = "";
+                Debug.Log("Código errado");
+            }
         }
     }
-}
+
+    // Abre o cofre automaticamente (pode ser chamado pelo Disjuntor)
+    public void AbrirCofreAutomatico()
+    {
+        if (!isOpen)
+        {
+            isOpen = true;
+            currentInput = "";
+            if (displayText != null)
+                displayText.text = "";
+            Debug.Log("Cofre aberto automaticamente!");
+        }
+    }
 
     void Update()
     {
