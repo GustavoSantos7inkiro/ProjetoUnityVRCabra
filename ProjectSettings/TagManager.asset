@@ -17,10 +17,10 @@ TagManager:
   - UI
   - Interactables
   - Player
-  - 
-  - 
-  - 
-  - 
+  - HandBlock
+  - Boxes(CofreCaixa)
+  - HandInteract
+  - Baphomet
   - 
   - 
   - 
