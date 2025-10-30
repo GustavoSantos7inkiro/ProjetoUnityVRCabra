@@ -14051,6 +14051,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Luminaria
       objectReference: {fileID: 0}
+    - target: {fileID: 1644476406946372, guid: 20ffe5c18928a4c4594e9261db2333af, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4848899773351372, guid: 20ffe5c18928a4c4594e9261db2333af, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.76
@@ -19081,7 +19085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 1927888955}
-  m_TurnSpeed: 60
+  m_TurnSpeed: 20
   m_LeftHandTurnAction:
     m_UseReference: 0
     m_Action:
@@ -19119,9 +19123,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 1927888955}
-  m_MoveSpeed: 10
+  m_MoveSpeed: 7
   m_EnableStrafe: 1
-  m_EnableFly: 1
+  m_EnableFly: 0
   m_UseGravity: 1
   m_GravityApplicationMode: 0
   m_ForwardSource: {fileID: 0}
@@ -22226,7 +22230,6 @@ GameObject:
   - component: {fileID: 3297482297808564917}
   - component: {fileID: 1821650371493503955}
   - component: {fileID: 5468034498688068226}
-  - component: {fileID: 5468034498688068227}
   m_Layer: 9
   m_Name: Caixa
   m_TagString: Untagged
@@ -22599,28 +22602,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
---- !u!64 &5468034498688068227
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4463478101689830406}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4796804871060435552, guid: 6a29643fa175ca349bebb3a4ba238d41, type: 3}
 --- !u!1 &5471770951736456025
 GameObject:
   m_ObjectHideFlags: 0
