@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Disjuntor : MonoBehaviour
 {
@@ -10,23 +11,25 @@ public class Disjuntor : MonoBehaviour
     public Light lampada;
 
     [Header("Números que aparecem quando a luz acende")]
-    public GameObject[] numeros; // arraste aqui os objetos dos números no Inspector
+    public GameObject[] numeros; // arraste os objetos no Inspector
+
+    [Header("Evento ao acender a lâmpada")]
+    public UnityEvent OnLampadaAcende;
 
     private void Start()
     {
-        lampada.enabled = false; // começa apagada
-        AtualizarVisibilidadeNumeros(false); // números invisíveis no início
+        if (lampada != null) lampada.enabled = false;
+        AtualizarVisibilidadeNumeros(false);
     }
 
+    // Chame este método quando um fusível for inserido
     public void ContarFusivel()
     {
         fusiveisInseridos++;
 
         if (fusiveisInseridos >= fusiveisNecessarios)
         {
-            lampada.enabled = true;
-            AtualizarVisibilidadeNumeros(true);
-            Debug.Log("Todos os fusíveis foram inseridos! Lâmpada acesa e números revelados!");
+            AcenderLampada();
         }
     }
 
@@ -37,5 +40,18 @@ public class Disjuntor : MonoBehaviour
             if (numero != null)
                 numero.SetActive(visivel);
         }
+    }
+
+    private void AcenderLampada()
+    {
+        if (lampada != null)
+            lampada.enabled = true;
+
+        AtualizarVisibilidadeNumeros(true);
+
+        if (OnLampadaAcende != null)
+            OnLampadaAcende.Invoke();
+
+        Debug.Log("Todos os fusíveis foram inseridos! Lâmpada acesa e números revelados!");
     }
 }

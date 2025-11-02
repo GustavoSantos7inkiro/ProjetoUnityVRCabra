@@ -12,15 +12,15 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - CofreUI
   - Water
   - UI
   - Interactables
   - Player
-  - 
-  - 
-  - 
-  - 
+  - HandBlock
+  - Boxes(CofreCaixa)
+  - HandInteract
+  - Baphomet
   - 
   - 
   - 
