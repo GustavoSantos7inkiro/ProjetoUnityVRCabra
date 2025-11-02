@@ -4920,9 +4920,8 @@ MonoBehaviour:
   slotsDisponiveis:
   - {fileID: 636475034}
   - {fileID: 1824228687}
-  luzesGuias:
-  - {fileID: 469273051}
-  - {fileID: 1984183607}
+  luzGuiaCofre: {fileID: 1984183607}
+  luzGuiaPinturas: {fileID: 469273051}
   prefabParticula: {fileID: 0}
   duracaoDeslizamento: 0.3
 --- !u!1 &578262525
@@ -5630,9 +5629,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalSlots: 6
-  rewardLight: {fileID: 1394265334}
+  rewardLight: {fileID: 0}
   caixa: {fileID: 5925217013644577984}
   tampaCaixa: {fileID: 2558173430841492698}
+  slotManager: {fileID: 562361227}
 --- !u!1 &636475033
 GameObject:
   m_ObjectHideFlags: 0

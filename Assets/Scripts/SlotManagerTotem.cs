@@ -7,36 +7,56 @@ public class SlotManagerTotem : MonoBehaviour
     [Header("Slots disponíveis (slot 2 e 3)")]
     public Transform[] slotsDisponiveis;
 
-    [Header("Luzes e partículas")]
-    public Light[] luzesGuias;
+    [Header("Luzes guia")]
+    public Light luzGuiaCofre;      // acende quando o cofre abrir
+    public Light luzGuiaPinturas;   // acende quando puzzle das pinturas for concluído
+
+    [Header("Partículas")]
     public GameObject prefabParticula;
     public float duracaoDeslizamento = 0.3f;
 
     private List<GameObject> totensEncaixados = new List<GameObject>();
 
+    // Ativa luzes e partículas quando o cofre abre
     public void AtivarGuias()
     {
-        // Ativa luzes e partículas para mostrar onde encaixar
-        foreach (Light luz in luzesGuias)
-            luz.enabled = true;
+        if (luzGuiaCofre != null)
+            luzGuiaCofre.enabled = true;
 
         foreach (Transform slot in slotsDisponiveis)
         {
             if (prefabParticula != null)
             {
                 GameObject particula = Instantiate(prefabParticula, slot.position, Quaternion.identity);
-                Destroy(particula, 2f); // Dura 2 segundos
+                Destroy(particula, 2f);
             }
         }
     }
 
-    public void EncaixarTotem(GameObject totem)
+    // Quando um totem é encaixado
+    public void TotemEncaixado(GameObject totem)
     {
-        // Verifica se já foi encaixado
         if (totensEncaixados.Contains(totem)) return;
 
-        // Encontra o primeiro slot livre
-        Transform slotLivre = null;
+        totensEncaixados.Add(totem);
+
+        // Desativa física temporariamente
+        Rigidbody rb = totem.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+
+        // Move o totem suavemente para o slot
+        Transform slotLivre = ObterSlotLivre();
+        if (slotLivre != null)
+            StartCoroutine(DeslizarTotem(totem, slotLivre.position, slotLivre.rotation));
+    }
+
+    private Transform ObterSlotLivre()
+    {
         foreach (Transform s in slotsDisponiveis)
         {
             bool ocupado = false;
@@ -49,33 +69,9 @@ public class SlotManagerTotem : MonoBehaviour
                 }
             }
             if (!ocupado)
-            {
-                slotLivre = s;
-                break;
-            }
+                return s;
         }
-
-        if (slotLivre == null) return; // nenhum slot livre
-
-        totensEncaixados.Add(totem);
-
-        // Desativa física temporariamente
-        Rigidbody rb = totem.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.isKinematic = true;
-            rb.linearVelocity = Vector3.zero;      // antes: rb.velocity
-            rb.angularVelocity = Vector3.zero;     // continua igual
-        }
-
-        // Inicia deslize para o slot
-        StartCoroutine(DeslizarTotem(totem, slotLivre.position, slotLivre.rotation));
-
-        // Desliga luzes do slot após encaixe
-        foreach (Light luz in luzesGuias)
-        {
-            luz.enabled = false;
-        }
+        return null;
     }
 
     private IEnumerator DeslizarTotem(GameObject totem, Vector3 posFinal, Quaternion rotFinal)

@@ -4,21 +4,21 @@ using TMPro;
 public class CofreControllerXR : MonoBehaviour
 {
     [Header("Partes do Cofre")]
-    public Transform door; // Porta que vai abrir
-    public TextMeshProUGUI displayText; // Texto do display
+    public Transform door;
+    public TextMeshProUGUI displayText;
 
     [Header("Botões do Cofre")]
-    public CofreBotaoXR[] botoes; // Referência aos 8 botões
+    public CofreBotaoXR[] botoes;
 
     [Header("Código do Cofre")]
-    public string code = "531"; // Código correto
+    public string code = "531";
 
     [Header("Rotação da Porta")]
     public float rotationSpeed = 90f;
     public float rotationAngle = 90f;
 
-    [Header("Referência ao SlotManagerTotem")]
-    public SlotManagerTotem slotManager; // <-- Arraste o objeto com o SlotManagerTotem aqui
+    [Header("SlotManagerTotem")]
+    public SlotManagerTotem slotManager;
 
     private string currentInput = "";
     private bool isOpen = false;
@@ -36,15 +36,10 @@ public class CofreControllerXR : MonoBehaviour
         if (displayText != null)
             displayText.text = "";
 
-        // Configura cada botão para este cofre
         foreach (var botao in botoes)
-        {
-            if (botao != null)
-                botao.Configurar(this);
-        }
+            if (botao != null) botao.Configurar(this);
     }
 
-    // Chamado por cada botão
     public void PressButton(string number)
     {
         if (isOpen) return;
@@ -57,9 +52,7 @@ public class CofreControllerXR : MonoBehaviour
         if (currentInput.Length == code.Length)
         {
             if (currentInput == code)
-            {
                 AbrirCofreAutomatico();
-            }
             else
             {
                 if (displayText != null)
@@ -70,7 +63,6 @@ public class CofreControllerXR : MonoBehaviour
         }
     }
 
-    // Abre o cofre automaticamente (pode ser chamado pelo Disjuntor)
     public void AbrirCofreAutomatico()
     {
         if (!isOpen)
@@ -82,15 +74,11 @@ public class CofreControllerXR : MonoBehaviour
 
             Debug.Log("Cofre aberto automaticamente!");
 
-            // ✅ Ativa as luzes e partículas dos slots de totem
+            // Acende luz guia da mesa
             if (slotManager != null)
             {
                 slotManager.AtivarGuias();
-                Debug.Log("Luzes guia e partículas ativadas nos slots de totem.");
-            }
-            else
-            {
-                Debug.LogWarning("SlotManagerTotem não atribuído no CofreControllerXR!");
+                Debug.Log("Luz guia e partículas ativadas nos slots de totem.");
             }
         }
     }
@@ -98,8 +86,6 @@ public class CofreControllerXR : MonoBehaviour
     void Update()
     {
         if (isOpen && door != null)
-        {
             door.rotation = Quaternion.RotateTowards(door.rotation, openRotation, rotationSpeed * Time.deltaTime);
-        }
     }
 }
