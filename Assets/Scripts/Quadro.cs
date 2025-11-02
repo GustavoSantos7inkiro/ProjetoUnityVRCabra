@@ -23,11 +23,11 @@ public class PuzzleManager : MonoBehaviour
     {
         acertos++;
 
-        Debug.Log("🧩 Peça correta encaixada! Total: " + acertos + "/" + totalSlots);
+        Debug.Log(" Peça correta encaixada! Total: " + acertos + "/" + totalSlots);
 
         if (acertos >= totalSlots)
         {
-            Debug.Log("🎉 Quebra-cabeça resolvido!");
+            Debug.Log(" Quebra-cabeça resolvido!");
 
             // Acende a luz
             //if (rewardLight != null)
@@ -41,11 +41,11 @@ public class PuzzleManager : MonoBehaviour
             if (tampaCaixa != null)
             {
                 tampaCaixa.SetActive(false);
-                Debug.Log("🗃️ Tampa da caixa removida da cena!");
+                Debug.Log(" Tampa da caixa removida da cena!");
             }
             else
             {
-                Debug.LogWarning("⚠️ Nenhuma tampa foi atribuída no PuzzleManager!");
+                Debug.LogWarning(" Nenhuma tampa foi atribuída no PuzzleManager!");
             }
         }
     }

@@ -14,6 +14,9 @@ public class CofreController : MonoBehaviour
     public float rotationSpeed = 90f;     // Velocidade da porta
     public float rotationAngle = 90f;     // Ângulo que a porta abre
 
+    [Header("Slot Manager Totem")]
+    public SlotManagerTotem slotManager;  // Referência ao SlotManager
+
     private string currentInput = "";
     private bool isOpen = false;
     private Quaternion closedRotation;
@@ -49,8 +52,11 @@ public class CofreController : MonoBehaviour
                 if (displayText != null)
                     displayText.text = "";
 
-                // (opcional) também zera o texto interno
                 currentInput = "";
+
+                // ✅ Chama o SlotManagerTotem para ativar luzes guia e partículas
+                if (slotManager != null)
+                    slotManager.AtivarGuias();
             }
             else
             {

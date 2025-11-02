@@ -17,6 +17,9 @@ public class CofreControllerXR : MonoBehaviour
     public float rotationSpeed = 90f;
     public float rotationAngle = 90f;
 
+    [Header("Referência ao SlotManagerTotem")]
+    public SlotManagerTotem slotManager; // <-- Arraste o objeto com o SlotManagerTotem aqui
+
     private string currentInput = "";
     private bool isOpen = false;
     private Quaternion closedRotation;
@@ -76,7 +79,19 @@ public class CofreControllerXR : MonoBehaviour
             currentInput = "";
             if (displayText != null)
                 displayText.text = "";
+
             Debug.Log("Cofre aberto automaticamente!");
+
+            // ✅ Ativa as luzes e partículas dos slots de totem
+            if (slotManager != null)
+            {
+                slotManager.AtivarGuias();
+                Debug.Log("Luzes guia e partículas ativadas nos slots de totem.");
+            }
+            else
+            {
+                Debug.LogWarning("SlotManagerTotem não atribuído no CofreControllerXR!");
+            }
         }
     }
 
