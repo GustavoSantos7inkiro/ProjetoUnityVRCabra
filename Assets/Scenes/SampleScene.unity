@@ -512,6 +512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotManager: {fileID: 1938830893}
+  slotIndex: 0
 --- !u!1 &61421074
 GameObject:
   m_ObjectHideFlags: 0
@@ -10631,6 +10632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotManager: {fileID: 1938830893}
+  slotIndex: 1
 --- !u!1 &1090983723
 GameObject:
   m_ObjectHideFlags: 0
@@ -15596,6 +15598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotManager: {fileID: 1938830893}
+  slotIndex: 2
 --- !u!1001 &1557656642
 PrefabInstance:
   m_ObjectHideFlags: 0
