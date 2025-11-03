@@ -1,39 +1,61 @@
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
-using System.Collections;
 
-public class SlotFusivelVR_Final2 : MonoBehaviour
+public class SlotManagerFusivel : MonoBehaviour
 {
-    [Header("Configurações do encaixe")]
-    public Transform pontoEncaixe; // ponto exato onde o fusível deve ficar
-    public float duracaoDeslizamento = 0.3f; // tempo do deslize em segundos
+    [Header("Fusíveis")]
+    public GameObject[] fusiveis; // Arraste todos os fusíveis aqui
 
-    private bool ocupado = false;
-    private Disjuntor disjuntor;
+    [Header("Posições dos slots (World Transform)")]
+    public Vector3[] posicoes;
 
-    private void Start()
+    [Header("Rotações dos slots (Euler X,Y,Z)")]
+    public Vector3[] eulersRotacoes;
+
+    [HideInInspector]
+    public Disjuntor disjuntor;
+
+    private bool[] slotOcupado; // Controle de slots preenchidos
+
+    private void Awake()
     {
         disjuntor = GetComponentInParent<Disjuntor>();
+        slotOcupado = new bool[posicoes.Length];
     }
 
-    private void OnTriggerEnter(Collider other)
+    // Encaixa o fusível no próximo slot livre
+    public void EncaixarFusivel(GameObject fusivel)
     {
-        if (ocupado) return;
-        if (!other.CompareTag("Fusivel")) return;
+        if (fusivel == null) return;
 
-        Fusivel fusivel = other.GetComponent<Fusivel>();
-        if (fusivel == null || fusivel.colocado) return;
+        Fusivel f = fusivel.GetComponent<Fusivel>();
+        if (f == null || f.colocado) return;
 
-        // Se estiver sendo segurado, soltar
-        XRGrabInteractable grab = other.GetComponent<XRGrabInteractable>();
-        if (grab != null && grab.isSelected)
+        // Encontra o próximo slot livre
+        int indexLivre = -1;
+        for (int i = 0; i < slotOcupado.Length; i++)
         {
-            grab.interactionManager.CancelInteractableSelection(grab);
+            if (!slotOcupado[i])
+            {
+                indexLivre = i;
+                break;
+            }
         }
 
-        ocupado = true;
+        if (indexLivre == -1)
+        {
+            Debug.Log("Todos os slots já estão ocupados!");
+            return;
+        }
 
-        // Desativa física temporariamente
+        // Move fusível para a posição e rotação do slot
+        fusivel.transform.position = posicoes[indexLivre];
+        fusivel.transform.rotation = Quaternion.Euler(eulersRotacoes[indexLivre]);
+
+        // Marca como colocado e slot ocupado
+        f.colocado = true;
+        slotOcupado[indexLivre] = true;
+
+        // Desativa física
         Rigidbody rb = fusivel.GetComponent<Rigidbody>();
         if (rb != null)
         {
@@ -42,52 +64,10 @@ public class SlotFusivelVR_Final2 : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
         }
 
-        // Guarda escala original
-        Vector3 escalaOriginal = fusivel.transform.localScale;
-
-        // Remove qualquer parent anterior para evitar deslocamento por hierarquia
-        fusivel.transform.SetParent(null);
-
-        // Inicia coroutine para deslizar suavemente até o ponto de encaixe
-        StartCoroutine(DeslizarFusivel(fusivel, escalaOriginal));
-    }
-
-    private IEnumerator DeslizarFusivel(Fusivel fusivel, Vector3 escalaOriginal)
-    {
-        Vector3 posInicial = fusivel.transform.position;
-        Quaternion rotInicial = fusivel.transform.rotation;
-
-        Vector3 posFinal = pontoEncaixe.position;
-        Quaternion rotFinal = pontoEncaixe.rotation;
-
-        float tempo = 0f;
-
-        while (tempo < duracaoDeslizamento)
-        {
-            tempo += Time.deltaTime;
-            float t = Mathf.Clamp01(tempo / duracaoDeslizamento);
-
-            fusivel.transform.position = Vector3.Lerp(posInicial, posFinal, t);
-            fusivel.transform.rotation = Quaternion.Slerp(rotInicial, rotFinal, t);
-            fusivel.transform.localScale = escalaOriginal;
-
-            yield return null;
-        }
-
-        // Garante posição/rotação/escala final
-        fusivel.transform.position = posFinal;
-        fusivel.transform.rotation = rotFinal;
-        fusivel.transform.localScale = escalaOriginal;
-
-        // Faz filho do slot mantendo a posição no mundo
-        fusivel.transform.SetParent(transform, true); // <== aqui é importante!
-
-        // Marca como encaixado
-        fusivel.colocado = true;
-
         // Conta no disjuntor
-        disjuntor.ContarFusivel();
+        if (disjuntor != null)
+            disjuntor.ContarFusivel();
 
-        Debug.Log("Fusível encaixado perfeitamente no slot!");
+        Debug.Log($"Fusível {fusivel.name} encaixado no slot {indexLivre}!");
     }
 }

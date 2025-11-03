@@ -1,8 +1,8 @@
-
-
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
+[RequireComponent(typeof(XRGrabInteractable))]
 public class Fusivel : MonoBehaviour
 {
-    public bool colocado = false; // se já foi encaixado
+    public bool colocado = false;
 }
