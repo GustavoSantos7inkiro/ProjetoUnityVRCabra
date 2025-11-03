@@ -1185,6 +1185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colocado: 0
+  fusivelVisual: {fileID: 0}
 --- !u!1 &187881538
 GameObject:
   m_ObjectHideFlags: 0
@@ -9688,9 +9689,9 @@ Transform:
   - {fileID: 1743579878}
   - {fileID: 2402951017933369983}
   - {fileID: 188019283}
-  - {fileID: 1270676363}
   - {fileID: 1634381859}
   - {fileID: 187123248}
+  - {fileID: 1244859062}
   m_Father: {fileID: 1238915196}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &976690114
@@ -13209,7 +13210,7 @@ Transform:
   - {fileID: 187881539}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1260776732
+--- !u!1 &1244859061
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13217,95 +13218,55 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1260776733}
-  - component: {fileID: 1260776734}
+  - component: {fileID: 1244859062}
+  - component: {fileID: 1244859066}
+  - component: {fileID: 1244859065}
+  - component: {fileID: 1244859064}
+  - component: {fileID: 1244859063}
   m_Layer: 0
-  m_Name: paredequartoCentral
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &1260776733
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1260776732}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.7067888, y: 0.02121045, z: 0.021210348, w: -0.7067884}
-  m_LocalPosition: {x: -20.2, y: 24.105036, z: -30.6}
-  m_LocalScale: {x: 100, y: 100.00002, z: 100}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 96003636}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -3.438}
---- !u!65 &1260776734
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1260776732}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.0080000665, y: 0.075, z: 0.037879925}
-  m_Center: {x: 0.009999884, y: 0.000000014343672, z: 0.014999994}
---- !u!1 &1270676362
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1270676363}
-  - component: {fileID: 1270676368}
-  - component: {fileID: 1270676367}
-  - component: {fileID: 1270676366}
-  - component: {fileID: 1270676365}
-  - component: {fileID: 1270676364}
-  - component: {fileID: 1270676369}
-  m_Layer: 0
-  m_Name: Fusivel3
+  m_Name: FusivelPivot3
   m_TagString: Fusivel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1270676363
+--- !u!4 &1244859062
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270676362}
+  m_GameObject: {fileID: 1244859061}
   serializedVersion: 2
   m_LocalRotation: {x: -0.70694786, y: -0.014993575, z: -0.014993577, w: 0.70694774}
-  m_LocalPosition: {x: 14.4, y: -0.79572034, z: -0.08}
+  m_LocalPosition: {x: 14.4, y: -0.79572034, z: -0.07999992}
   m_LocalScale: {x: 9.599999, y: 9.599998, z: 11.2}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1270676363}
   m_Father: {fileID: 970429783}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1270676364
+--- !u!114 &1244859063
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270676362}
+  m_GameObject: {fileID: 1244859061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75317a2f905e0ad428afe416a2175d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colocado: 0
+  fusivelVisual: {fileID: 1270676363}
+--- !u!114 &1244859064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244859061}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
@@ -13451,13 +13412,13 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!54 &1270676365
+--- !u!54 &1244859065
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270676362}
+  m_GameObject: {fileID: 1244859061}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
@@ -13478,13 +13439,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &1270676366
+--- !u!65 &1244859066
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270676362}
+  m_GameObject: {fileID: 1244859061}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -13497,8 +13458,94 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.01107856, y: 0.011078559, z: 0.033901352}
-  m_Center: {x: 0, y: 0.000000029802322, z: 0.015000003}
+  m_Size: {x: 0.017, y: 0.016, z: 0.038}
+  m_Center: {x: 0, y: 0, z: 0.015}
+--- !u!1 &1260776732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1260776733}
+  - component: {fileID: 1260776734}
+  m_Layer: 0
+  m_Name: paredequartoCentral
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &1260776733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260776732}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7067888, y: 0.02121045, z: 0.021210348, w: -0.7067884}
+  m_LocalPosition: {x: -20.2, y: 24.105036, z: -30.6}
+  m_LocalScale: {x: 100, y: 100.00002, z: 100}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 96003636}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -3.438}
+--- !u!65 &1260776734
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260776732}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0080000665, y: 0.075, z: 0.037879925}
+  m_Center: {x: 0.009999884, y: 0.000000014343672, z: 0.014999994}
+--- !u!1 &1270676362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1270676363}
+  - component: {fileID: 1270676368}
+  - component: {fileID: 1270676367}
+  m_Layer: 0
+  m_Name: Fusivel3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1270676363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270676362}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1244859062}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1270676367
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13552,19 +13599,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270676362}
   m_Mesh: {fileID: 7669040531638369240, guid: 8a7533e28ec91474e9efa6b962dce600, type: 3}
---- !u!114 &1270676369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1270676362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75317a2f905e0ad428afe416a2175d5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colocado: 0
 --- !u!1 &1286250192
 GameObject:
   m_ObjectHideFlags: 0
@@ -17020,6 +17054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colocado: 0
+  fusivelVisual: {fileID: 0}
 --- !u!1 &1638982981
 GameObject:
   m_ObjectHideFlags: 0
@@ -19982,19 +20017,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9884539ba880b48b8d22d2668e9222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fusiveis:
-  - {fileID: 187123247}
-  - {fileID: 1270676362}
-  - {fileID: 1634381858}
   posicoes:
   - {x: 13.712, y: 1.57, z: 3.629}
   - {x: 13.712, y: 1.57, z: 3.249}
   - {x: 13.712, y: 1.57, z: 3.099}
-  eulersRotacoes:
-  - {x: -0.707, y: -0.015, z: -0.015}
-  - {x: -0.707, y: -0.015, z: -0.015}
-  - {x: -0.707, y: -0.015, z: -0.015}
-  disjuntor: {fileID: 0}
+  rotacoesEuler:
+  - {x: -90, y: 0, z: 0}
+  - {x: -90, y: 0, z: 0}
+  - {x: -90, y: 0, z: 0}
+  disjuntor: {fileID: 188019284}
 --- !u!1 &1943463973
 GameObject:
   m_ObjectHideFlags: 0
