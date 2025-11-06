@@ -29,10 +29,12 @@ public class SlotTotem : MonoBehaviour
                 correctPosition = new Vector3(8.144384f, 1.315682f, -0.022334f);
                 correctRotation = new Quaternion(-9.770124e-9f, 0.965926f, -3.64627e-8f, 0.2588185f);
                 break;
+
             case 2:
                 correctPosition = new Vector3(9.444384f, 1.315682f, -0.132334f);
                 correctRotation = new Quaternion(-3.774895e-8f, 0f, 0f, 1f);
                 break;
+
             case 3:
                 correctPosition = new Vector3(8.694384f, 1.325682f, 0.987666f);
                 correctRotation = new Quaternion(2.298011e-8f, 0.7933533f, -2.994826e-8f, -0.6087615f);
@@ -81,6 +83,16 @@ public class SlotTotem : MonoBehaviour
                 manager.ContarAcerto();
 
             Debug.Log($"✅ Totem {totem.idTotem} encaixado no slot {idSlot} na posição {correctPosition} e rotação {correctRotation}!");
+
+
+            // ✅✅✅ Avisar o SlotManagerTotem APENAS para totens válidos (ID 2 ou 3)
+            if (totem.idTotem == 2 || totem.idTotem == 3)
+            {
+                var slotManagerTotem = FindFirstObjectByType<SlotManagerTotem>();
+                if (slotManagerTotem != null)
+                    slotManagerTotem.TotemEncaixado(other.gameObject);
+            }
+            // ✅✅✅ FIM DA ADIÇÃO
         }
     }
 }

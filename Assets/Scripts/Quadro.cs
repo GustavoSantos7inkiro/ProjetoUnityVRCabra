@@ -32,9 +32,9 @@ public class PuzzleManager : MonoBehaviour
             if (tampaCaixa != null)
                 tampaCaixa.SetActive(false);
 
-            // Acende a luz guia da mesa que depende do puzzle
-            if (slotManager != null && slotManager.luzGuiaPinturas != null)
-                slotManager.luzGuiaPinturas.enabled = true;
+            // ✅ Ativa LUZ e PARTÍCULAS do slot do Totem das PINTURAS
+            if (slotManager != null)
+                slotManager.AtivarGuiasPinturas();
         }
     }
 }

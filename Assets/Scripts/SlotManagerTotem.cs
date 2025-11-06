@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 public class SlotManagerTotem : MonoBehaviour
@@ -17,9 +16,7 @@ public class SlotManagerTotem : MonoBehaviour
 
     [Header("Partículas")]
     public GameObject prefabParticula;
-    public float duracaoDeslizamento = 0.3f;
 
-    private List<GameObject> totensEncaixados = new List<GameObject>();
     private GameObject particulasCofreAtivas;
     private GameObject particulasPinturasAtivas;
 
@@ -50,89 +47,26 @@ public class SlotManagerTotem : MonoBehaviour
     }
 
     // ===============================================================
+    // ✅ ESTE MÉTODO AGORA APENAS DESLIGA LUZES E PARTÍCULAS
     public void TotemEncaixado(GameObject totem)
     {
-        if (totensEncaixados.Contains(totem)) return;
-        totensEncaixados.Add(totem);
+        // Distâncias para decidir qual slot foi ativado
+        float distCofre = Vector3.Distance(totem.transform.position, slotsDisponiveis[indiceSlotCofre].position);
+        float distPinturas = Vector3.Distance(totem.transform.position, slotsDisponiveis[indiceSlotPinturas].position);
 
-        Rigidbody rb = totem.GetComponent<Rigidbody>();
-        if (rb)
+        Debug.Log($"✅ SlotManager recebeu Totem: {totem.name} DistCofre {distCofre} DistPinturas {distPinturas}");
+
+        // Se encaixou no slot do cofre
+        if (distCofre < distPinturas)
         {
-            rb.isKinematic = true;
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
+            if (luzGuiaCofre) luzGuiaCofre.enabled = false;
+            if (particulasCofreAtivas) Destroy(particulasCofreAtivas);
         }
-
-        Transform slotDestino = ObterSlotMaisProximo(totem.transform.position);
-
-
-        Debug.Log("Totem encaixado. Slot destino = " + slotDestino.name);
-        Debug.Log("Slot Cofre = " + slotsDisponiveis[indiceSlotCofre].name);
-        Debug.Log("Slot Pinturas = " + slotsDisponiveis[indiceSlotPinturas].name);
-
-        Debug.Log("Distancia para slot Cofre = " +
-         Vector3.Distance(slotDestino.position, slotsDisponiveis[indiceSlotCofre].position));
-
-        Debug.Log("Distancia para slot Pinturas = " +
-         Vector3.Distance(slotDestino.position, slotsDisponiveis[indiceSlotPinturas].position));
-
-        StartCoroutine(DeslizarTotem(totem, slotDestino.position, slotDestino.rotation));
-
-       // ===== apagar partículas corretas (agora por DISTÂNCIA) =====
-float distCofre = Vector3.Distance(slotDestino.position, slotsDisponiveis[indiceSlotCofre].position);
-float distPinturas = Vector3.Distance(slotDestino.position, slotsDisponiveis[indiceSlotPinturas].position);
-
-if (distCofre < 0.15f) // tolerância de 15 cm
-{
-    if (luzGuiaCofre) luzGuiaCofre.enabled = false;
-    if (particulasCofreAtivas) Destroy(particulasCofreAtivas);
-}
-else if (distPinturas < 0.15f)
-{
-    if (luzGuiaPinturas) luzGuiaPinturas.enabled = false;
-    if (particulasPinturasAtivas) Destroy(particulasPinturasAtivas);
-}
-    }
-
-    // ===============================================================
-    private Transform ObterSlotMaisProximo(Vector3 pos)
-    {
-        Transform melhor = null;
-        float menorDist = float.MaxValue;
-
-        foreach (Transform slot in slotsDisponiveis)
+        else
         {
-            float d = Vector3.Distance(pos, slot.position);
-            if (d < menorDist)
-            {
-                menorDist = d;
-                melhor = slot;
-            }
+            if (luzGuiaPinturas) luzGuiaPinturas.enabled = false;
+            if (particulasPinturasAtivas) Destroy(particulasPinturasAtivas);
         }
-        return melhor;
-    }
-
-    // ===============================================================
-    private IEnumerator DeslizarTotem(GameObject totem, Vector3 posFinal, Quaternion rotFinal)
-    {
-        Vector3 posInicial = totem.transform.position;
-        Quaternion rotInicial = totem.transform.rotation;
-
-        float tempo = 0f;
-
-        while (tempo < duracaoDeslizamento)
-        {
-            tempo += Time.deltaTime;
-            float t = tempo / duracaoDeslizamento;
-
-            totem.transform.position = Vector3.Lerp(posInicial, posFinal, t);
-            totem.transform.rotation = Quaternion.Slerp(rotInicial, rotFinal, t);
-
-            yield return null;
-        }
-
-        totem.transform.position = posFinal;
-        totem.transform.rotation = rotFinal;
     }
 
     // ===============================================================
