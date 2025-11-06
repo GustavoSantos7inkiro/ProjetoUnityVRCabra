@@ -4,92 +4,137 @@ using System.Collections.Generic;
 
 public class SlotManagerTotem : MonoBehaviour
 {
-    [Header("Slots disponíveis (slot 2 e 3)")]
+    [Header("Slots disponíveis (ex: slot 2 e 3)")]
     public Transform[] slotsDisponiveis;
 
+    [Header("Índices de slots específicos")]
+    public int indiceSlotCofre = 0;
+    public int indiceSlotPinturas = 1;
+
     [Header("Luzes guia")]
-    public Light luzGuiaCofre;      // acende quando o cofre abrir
-    public Light luzGuiaPinturas;   // acende quando puzzle das pinturas for concluído
+    public Light luzGuiaCofre;
+    public Light luzGuiaPinturas;
 
     [Header("Partículas")]
     public GameObject prefabParticula;
     public float duracaoDeslizamento = 0.3f;
 
     private List<GameObject> totensEncaixados = new List<GameObject>();
+    private GameObject particulasCofreAtivas;
+    private GameObject particulasPinturasAtivas;
 
-    // Ativa luzes e partículas quando o cofre abre
-    public void AtivarGuias()
+    // ===============================================================
+    public void AtivarGuiasCofre()
     {
-        if (luzGuiaCofre != null)
-            luzGuiaCofre.enabled = true;
+        if (luzGuiaCofre) luzGuiaCofre.enabled = true;
 
-        foreach (Transform slot in slotsDisponiveis)
-        {
-            if (prefabParticula != null)
-            {
-                GameObject particula = Instantiate(prefabParticula, slot.position, Quaternion.identity);
-                Destroy(particula, 2f);
-            }
-        }
+        if (particulasCofreAtivas) Destroy(particulasCofreAtivas);
+
+        Transform slot = slotsDisponiveis[indiceSlotCofre];
+
+        particulasCofreAtivas = Instantiate(prefabParticula, slot.position, Quaternion.Euler(-90, 0, 0));
+        particulasCofreAtivas.transform.SetParent(slot);
     }
 
-    // Quando um totem é encaixado
+    // ===============================================================
+    public void AtivarGuiasPinturas()
+    {
+        if (luzGuiaPinturas) luzGuiaPinturas.enabled = true;
+
+        if (particulasPinturasAtivas) Destroy(particulasPinturasAtivas);
+
+        Transform slot = slotsDisponiveis[indiceSlotPinturas];
+
+        particulasPinturasAtivas = Instantiate(prefabParticula, slot.position, Quaternion.Euler(-90, 0, 0));
+        particulasPinturasAtivas.transform.SetParent(slot);
+    }
+
+    // ===============================================================
     public void TotemEncaixado(GameObject totem)
     {
         if (totensEncaixados.Contains(totem)) return;
-
         totensEncaixados.Add(totem);
 
-        // Desativa física temporariamente
         Rigidbody rb = totem.GetComponent<Rigidbody>();
-        if (rb != null)
+        if (rb)
         {
             rb.isKinematic = true;
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
 
-        // Move o totem suavemente para o slot
-        Transform slotLivre = ObterSlotLivre();
-        if (slotLivre != null)
-            StartCoroutine(DeslizarTotem(totem, slotLivre.position, slotLivre.rotation));
+        Transform slotDestino = ObterSlotMaisProximo(totem.transform.position);
+
+
+        Debug.Log("Totem encaixado. Slot destino = " + slotDestino.name);
+        Debug.Log("Slot Cofre = " + slotsDisponiveis[indiceSlotCofre].name);
+        Debug.Log("Slot Pinturas = " + slotsDisponiveis[indiceSlotPinturas].name);
+
+        Debug.Log("Distancia para slot Cofre = " +
+         Vector3.Distance(slotDestino.position, slotsDisponiveis[indiceSlotCofre].position));
+
+        Debug.Log("Distancia para slot Pinturas = " +
+         Vector3.Distance(slotDestino.position, slotsDisponiveis[indiceSlotPinturas].position));
+
+        StartCoroutine(DeslizarTotem(totem, slotDestino.position, slotDestino.rotation));
+
+       // ===== apagar partículas corretas (agora por DISTÂNCIA) =====
+float distCofre = Vector3.Distance(slotDestino.position, slotsDisponiveis[indiceSlotCofre].position);
+float distPinturas = Vector3.Distance(slotDestino.position, slotsDisponiveis[indiceSlotPinturas].position);
+
+if (distCofre < 0.15f) // tolerância de 15 cm
+{
+    if (luzGuiaCofre) luzGuiaCofre.enabled = false;
+    if (particulasCofreAtivas) Destroy(particulasCofreAtivas);
+}
+else if (distPinturas < 0.15f)
+{
+    if (luzGuiaPinturas) luzGuiaPinturas.enabled = false;
+    if (particulasPinturasAtivas) Destroy(particulasPinturasAtivas);
+}
     }
 
-    private Transform ObterSlotLivre()
+    // ===============================================================
+    private Transform ObterSlotMaisProximo(Vector3 pos)
     {
-        foreach (Transform s in slotsDisponiveis)
+        Transform melhor = null;
+        float menorDist = float.MaxValue;
+
+        foreach (Transform slot in slotsDisponiveis)
         {
-            bool ocupado = false;
-            foreach (GameObject t in totensEncaixados)
+            float d = Vector3.Distance(pos, slot.position);
+            if (d < menorDist)
             {
-                if (Vector3.Distance(t.transform.position, s.position) < 0.01f)
-                {
-                    ocupado = true;
-                    break;
-                }
+                menorDist = d;
+                melhor = slot;
             }
-            if (!ocupado)
-                return s;
         }
-        return null;
+        return melhor;
     }
 
+    // ===============================================================
     private IEnumerator DeslizarTotem(GameObject totem, Vector3 posFinal, Quaternion rotFinal)
     {
         Vector3 posInicial = totem.transform.position;
         Quaternion rotInicial = totem.transform.rotation;
+
         float tempo = 0f;
 
         while (tempo < duracaoDeslizamento)
         {
             tempo += Time.deltaTime;
-            float t = Mathf.Clamp01(tempo / duracaoDeslizamento);
+            float t = tempo / duracaoDeslizamento;
+
             totem.transform.position = Vector3.Lerp(posInicial, posFinal, t);
             totem.transform.rotation = Quaternion.Slerp(rotInicial, rotFinal, t);
+
             yield return null;
         }
 
         totem.transform.position = posFinal;
         totem.transform.rotation = rotFinal;
     }
+
+    // ===============================================================
+    public void AtivarGuias() => AtivarGuiasCofre();
 }
