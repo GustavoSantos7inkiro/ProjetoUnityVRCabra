@@ -5433,7 +5433,6 @@ MonoBehaviour:
   luzGuiaCofre: {fileID: 1984183607}
   luzGuiaPinturas: {fileID: 469273051}
   prefabParticula: {fileID: 7826957797115218152, guid: d08effd006144af4e8fd91f44ab59c19, type: 3}
-  duracaoDeslizamento: 0.3
 --- !u!1 &578262525
 GameObject:
   m_ObjectHideFlags: 0
