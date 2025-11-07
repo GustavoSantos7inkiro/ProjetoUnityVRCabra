@@ -11,7 +11,11 @@ public class Disjuntor : MonoBehaviour
     public Light lampada;
 
     [Header("Números que aparecem quando a luz acende")]
-    public GameObject[] numeros; // arraste os objetos no Inspector
+    public GameObject[] numeros;
+
+    [Header("Som do Disjuntor")]
+    [Tooltip("Coloque aqui o AudioSource com sfx_eletricidade_disjuntor_v1")]
+    public AudioSource somDisjuntor;
 
     [Header("Evento ao acender a lâmpada")]
     public UnityEvent OnLampadaAcende;
@@ -22,7 +26,7 @@ public class Disjuntor : MonoBehaviour
         AtualizarVisibilidadeNumeros(false);
     }
 
-    // Chame este método quando um fusível for inserido
+    // Chamado quando um fusível é inserido
     public void ContarFusivel()
     {
         fusiveisInseridos++;
@@ -48,6 +52,14 @@ public class Disjuntor : MonoBehaviour
             lampada.enabled = true;
 
         AtualizarVisibilidadeNumeros(true);
+
+        // ✅ Tocar som do disjuntor
+        if (somDisjuntor != null)
+        {
+            somDisjuntor.volume = 1.2f; // pode ajustar
+            somDisjuntor.Play();
+            Debug.Log("🔊 Som do disjuntor tocou!");
+        }
 
         if (OnLampadaAcende != null)
             OnLampadaAcende.Invoke();
