@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using System.Collections;
 
 public class SlotTotem : MonoBehaviour
 {
@@ -17,12 +18,14 @@ public class SlotTotem : MonoBehaviour
     [Tooltip("Arraste aqui a luz que será ativada quando o Totem 3 for encaixado.")]
     public Light luzTotem3;
 
+    [Header("Porta a ser aberta quando o totem 3 for colocado")]
+    public GameObject porta;
+
     private Vector3 correctPosition;
     private Quaternion correctRotation;
 
     private void Start()
     {
-        // Configura automaticamente os valores corretos pelo idSlot
         switch (idSlot)
         {
             case 1:
@@ -41,7 +44,6 @@ public class SlotTotem : MonoBehaviour
                 break;
         }
 
-        // Garante que a luz comece apagada
         if (luzTotem3 != null)
             luzTotem3.enabled = false;
     }
@@ -53,14 +55,11 @@ public class SlotTotem : MonoBehaviour
         Totem totem = other.GetComponent<Totem>();
         if (totem != null && totem.idTotem == idSlot)
         {
-            // Remove parent temporariamente (mantém posição mundial)
             other.transform.SetParent(null, true);
 
-            // Move e rotaciona o totem na posição/rotação corretas do mundo
             other.transform.position = correctPosition;
             other.transform.rotation = correctRotation;
 
-            // Impede o totem de ser movido novamente
             XRGrabInteractable grab = other.GetComponent<XRGrabInteractable>();
             if (grab != null)
                 grab.enabled = false;
@@ -71,28 +70,64 @@ public class SlotTotem : MonoBehaviour
 
             preenchido = true;
 
-            // 🔆 Se este for o slot 3 e a luz existir, acende a luz
-            if (idSlot == 3 && luzTotem3 != null)
+            // ✅ Se este for o Totem 3 → acende luz e abre a porta
+            if (idSlot == 3)
             {
-                luzTotem3.enabled = true;
+                if (luzTotem3 != null)
+                    luzTotem3.enabled = true;
+
                 Debug.Log("💡 Luz do Totem 3 acesa!");
+
+                // ✅ Abra a porta aqui
+                if (porta != null)
+                {
+                    Debug.Log("🚪 Abrindo porta (rotação Y +90°)");
+                    StartCoroutine(AbrirPorta());
+                }
             }
 
-            // Notifica o manager se houver
             if (manager != null)
                 manager.ContarAcerto();
 
             Debug.Log($"✅ Totem {totem.idTotem} encaixado no slot {idSlot} na posição {correctPosition} e rotação {correctRotation}!");
 
 
-            // ✅✅✅ Avisar o SlotManagerTotem APENAS para totens válidos (ID 2 ou 3)
+            // ✅ Avisar SlotManagerTotem somente para Totem 2 e 3
             if (totem.idTotem == 2 || totem.idTotem == 3)
             {
                 var slotManagerTotem = FindFirstObjectByType<SlotManagerTotem>();
                 if (slotManagerTotem != null)
                     slotManagerTotem.TotemEncaixado(other.gameObject);
             }
-            // ✅✅✅ FIM DA ADIÇÃO
         }
     }
+
+    // ✅ Animação suave de abrir porta
+private IEnumerator AbrirPorta()
+{
+    // ✅ Rotacionar o OBJETO PAI
+    Transform portaTransform = porta.transform;
+
+    Quaternion rotInicial = portaTransform.rotation;
+
+    // ✅ Abre para fora → -90° no eixo Y
+    Quaternion rotFinal = rotInicial * Quaternion.Euler(0, -90f, 0);
+
+    float tempo = 0f;
+    float duracao = 1.2f;
+
+    while (tempo < duracao)
+    {
+        tempo += Time.deltaTime;
+
+        float t = Mathf.SmoothStep(0, 1, tempo / duracao);
+
+        portaTransform.rotation = Quaternion.Slerp(rotInicial, rotFinal, t);
+
+        yield return null;
+    }
+
+    // ✅ Travar aberta permanentemente
+    portaTransform.rotation = rotFinal;
+}
 }
