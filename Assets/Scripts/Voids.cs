@@ -85,7 +85,7 @@ public class SlotPuzzle : MonoBehaviour
             if (manager != null)
                 manager.ContarAcerto();
 
-            Debug.Log($"✅ Peça {peca.idPeca} encaixada no slot {idSlot} na posição {correctPosition} e rotação {correctRotation}!");
+            Debug.Log($" Peça {peca.idPeca} encaixada no slot {idSlot} na posição {correctPosition} e rotação {correctRotation}!");
         }
     }
 }

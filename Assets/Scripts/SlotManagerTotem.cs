@@ -20,7 +20,7 @@ public class SlotManagerTotem : MonoBehaviour
     private GameObject particulasCofreAtivas;
     private GameObject particulasPinturasAtivas;
 
-    // ===============================================================
+    // ===============
     public void AtivarGuiasCofre()
     {
         if (luzGuiaCofre) luzGuiaCofre.enabled = true;
@@ -33,7 +33,7 @@ public class SlotManagerTotem : MonoBehaviour
         particulasCofreAtivas.transform.SetParent(slot);
     }
 
-    // ===============================================================
+    // ===========
     public void AtivarGuiasPinturas()
     {
         if (luzGuiaPinturas) luzGuiaPinturas.enabled = true;
@@ -46,15 +46,15 @@ public class SlotManagerTotem : MonoBehaviour
         particulasPinturasAtivas.transform.SetParent(slot);
     }
 
-    // ===============================================================
-    // ✅ ESTE MÉTODO AGORA APENAS DESLIGA LUZES E PARTÍCULAS
+    // =======================
+    //  ESTE MÉTODO AGORA APENAS DESLIGA LUZES E PARTÍCULAS
     public void TotemEncaixado(GameObject totem)
     {
         // Distâncias para decidir qual slot foi ativado
         float distCofre = Vector3.Distance(totem.transform.position, slotsDisponiveis[indiceSlotCofre].position);
         float distPinturas = Vector3.Distance(totem.transform.position, slotsDisponiveis[indiceSlotPinturas].position);
 
-        Debug.Log($"✅ SlotManager recebeu Totem: {totem.name} DistCofre {distCofre} DistPinturas {distPinturas}");
+        Debug.Log($" SlotManager recebeu Totem: {totem.name} DistCofre {distCofre} DistPinturas {distPinturas}");
 
         // Se encaixou no slot do cofre
         if (distCofre < distPinturas)
@@ -69,6 +69,6 @@ public class SlotManagerTotem : MonoBehaviour
         }
     }
 
-    // ===============================================================
+    // ===================
     public void AtivarGuias() => AtivarGuiasCofre();
 }

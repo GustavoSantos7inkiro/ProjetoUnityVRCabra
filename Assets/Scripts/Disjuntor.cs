@@ -33,7 +33,7 @@ public class Disjuntor : MonoBehaviour
     // Chamado quando um fusível é inserido
     public void ContarFusivel()
     {
-        // 🔊 TOCAR CLICK DO FUSÍVEL
+        //  TOCAR CLICK DO FUSÍVEL
         TocarSomClick();
 
         fusiveisInseridos++;
@@ -77,7 +77,7 @@ public class Disjuntor : MonoBehaviour
 
         AtualizarVisibilidadeNumeros(true);
 
-        // ✅ Som final
+        //  Som final
         if (somDisjuntor != null)
         {
             somDisjuntor.volume = 1.2f;

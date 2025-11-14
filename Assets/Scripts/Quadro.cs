@@ -32,7 +32,7 @@ public class PuzzleManager : MonoBehaviour
             if (tampaCaixa != null)
                 tampaCaixa.SetActive(false);
 
-            // ✅ Ativa LUZ e PARTÍCULAS do slot do Totem das PINTURAS
+            //  Ativa LUZ e PARTÍCULAS do slot do Totem das PINTURAS
             if (slotManager != null)
                 slotManager.AtivarGuiasPinturas();
         }

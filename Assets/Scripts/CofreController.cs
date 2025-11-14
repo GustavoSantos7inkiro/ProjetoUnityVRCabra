@@ -48,13 +48,13 @@ public class CofreController : MonoBehaviour
             {
                 isOpen = true;
 
-                // 🧹 Limpa o display assim que o código estiver correto
+                //  Limpa o display assim que o código estiver correto
                 if (displayText != null)
                     displayText.text = "";
 
                 currentInput = "";
 
-                // ✅ Chama o SlotManagerTotem para ativar luzes guia e partículas
+                // Chama o SlotManagerTotem para ativar luzes guia e partículas
                 if (slotManager != null)
                     slotManager.AtivarGuias();
             }

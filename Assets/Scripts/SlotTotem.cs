@@ -70,7 +70,7 @@ public class SlotTotem : MonoBehaviour
 
             preenchido = true;
 
-            // ✅ Se este for o Totem 3 → acende luz e abre a porta
+            //  Se este for o Totem 3 → acende luz e abre a porta
             if (idSlot == 3)
             {
                 if (luzTotem3 != null)
@@ -78,7 +78,7 @@ public class SlotTotem : MonoBehaviour
 
                 Debug.Log("💡 Luz do Totem 3 acesa!");
 
-                // ✅ Abra a porta aqui
+                //  Abra a porta aqui
                 if (porta != null)
                 {
                     Debug.Log("🚪 Abrindo porta (rotação Y +90°)");
@@ -89,10 +89,10 @@ public class SlotTotem : MonoBehaviour
             if (manager != null)
                 manager.ContarAcerto();
 
-            Debug.Log($"✅ Totem {totem.idTotem} encaixado no slot {idSlot} na posição {correctPosition} e rotação {correctRotation}!");
+            Debug.Log($" Totem {totem.idTotem} encaixado no slot {idSlot} na posição {correctPosition} e rotação {correctRotation}!");
 
 
-            // ✅ Avisar SlotManagerTotem somente para Totem 2 e 3
+            //  Avisar SlotManagerTotem somente para Totem 2 e 3
             if (totem.idTotem == 2 || totem.idTotem == 3)
             {
                 var slotManagerTotem = FindFirstObjectByType<SlotManagerTotem>();
@@ -102,15 +102,15 @@ public class SlotTotem : MonoBehaviour
         }
     }
 
-    // ✅ Animação suave de abrir porta
+    //  Animação suave de abrir porta
 private IEnumerator AbrirPorta()
 {
-    // ✅ Rotacionar o OBJETO PAI
+    //  Rotacionar o OBJETO PAI
     Transform portaTransform = porta.transform;
 
     Quaternion rotInicial = portaTransform.rotation;
 
-    // ✅ Abre para fora → -90° no eixo Y
+    //  Abre para fora → -90° no eixo Y
     Quaternion rotFinal = rotInicial * Quaternion.Euler(0, -90f, 0);
 
     float tempo = 0f;
@@ -127,7 +127,7 @@ private IEnumerator AbrirPorta()
         yield return null;
     }
 
-    // ✅ Travar aberta permanentemente
+    //  Travar aberta permanentemente
     portaTransform.rotation = rotFinal;
 }
 }
