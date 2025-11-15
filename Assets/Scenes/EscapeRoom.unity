@@ -6764,6 +6764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f78f650899fe604e9dce293f56265c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuSceneName: Menu
 --- !u!4 &684378865
 Transform:
   m_ObjectHideFlags: 0
@@ -10612,7 +10613,7 @@ MonoBehaviour:
   canvasCronometro: {fileID: 1007620982}
   tempoText: {fileID: 806732789}
   cronometroOffset: {x: 0.7, y: -0.07, z: 0.5}
-  tempoSegundos: 900
+  tempoSegundos: 2
   luz1: {fileID: 1634071067}
   luz2: {fileID: 443340644}
   fadeDuration: 3
