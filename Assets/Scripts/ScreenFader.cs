@@ -4,18 +4,39 @@ using System.Collections;
 
 public class ScreenFader : MonoBehaviour
 {
-    public Image fadeImage;
+    [Header("References")]
+    public Image fadeImage; // assign in inspector (uma Image preta cobrindo a tela)
 
-    // FADE OUT (fica preto)
+    [Header("Options")]
+    public bool fadeInOnStart = true;
+    public float fadeInDuration = 0.8f;
+
+    private void Start()
+    {
+        if (fadeInOnStart && fadeImage != null)
+        {
+            // inicia FadeIn a partir do alpha atual
+            StartCoroutine(FadeIn(fadeInDuration));
+        }
+    }
+
     public IEnumerator FadeOut(float duration)
     {
+        if (fadeImage == null)
+        {
+            Debug.LogWarning("[ScreenFader] FadeOut called but fadeImage is null.");
+            yield break;
+        }
+
+        float start = fadeImage.color.a;
         float t = 0f;
         Color c = fadeImage.color;
 
         while (t < duration)
         {
             t += Time.deltaTime;
-            c.a = Mathf.Lerp(0f, 1f, t / duration);
+            float alpha = Mathf.Lerp(start, 1f, t / Mathf.Max(0.0001f, duration));
+            c.a = Mathf.Clamp01(alpha);
             fadeImage.color = c;
             yield return null;
         }
@@ -24,16 +45,23 @@ public class ScreenFader : MonoBehaviour
         fadeImage.color = c;
     }
 
-    // FADE IN (vem do preto para a cena)
     public IEnumerator FadeIn(float duration)
     {
+        if (fadeImage == null)
+        {
+            Debug.LogWarning("[ScreenFader] FadeIn called but fadeImage is null.");
+            yield break;
+        }
+
+        float start = fadeImage.color.a;
         float t = 0f;
         Color c = fadeImage.color;
 
         while (t < duration)
         {
             t += Time.deltaTime;
-            c.a = Mathf.Lerp(1f, 0f, t / duration);
+            float alpha = Mathf.Lerp(start, 0f, t / Mathf.Max(0.0001f, duration));
+            c.a = Mathf.Clamp01(alpha);
             fadeImage.color = c;
             yield return null;
         }
