@@ -5098,7 +5098,7 @@ GameObject:
   - component: {fileID: 1716102283}
   - component: {fileID: 1716102287}
   m_Layer: 0
-  m_Name: PlacadePressao
+  m_Name: ParedeLoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
