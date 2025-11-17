@@ -4222,12 +4222,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40990d2e3811b144484ab803b2e0f72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetoLaranja: {fileID: 1014695738}
-  paredeInvisivel: {fileID: 1622559720}
+  objetoLaranja: {fileID: 1780733166}
+  paredeInvisivel: {fileID: 1004654938}
   tagObjetoValido: ObjetoEspecial
   duracaoDeslize: 1
   tempoEspera: 3
-  posFinal: {x: 17.94384, y: 1.209095, z: -14.60532}
+  posFinal: {x: 17.96671, y: 1.235595, z: -26}
   rotFinal: {x: -0.7069478, y: -0.014993652, z: -0.014993652, w: 0.7069478}
 --- !u!65 &875235677
 BoxCollider:
@@ -4340,7 +4340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &978878268
 Transform:
   m_ObjectHideFlags: 0
@@ -6923,7 +6923,7 @@ Transform:
   m_GameObject: {fileID: 1602073585}
   serializedVersion: 2
   m_LocalRotation: {x: -0.70694786, y: -0.014993575, z: -0.014993577, w: 0.70694774}
-  m_LocalPosition: {x: -4.7, y: 1.1, z: -20.37623}
+  m_LocalPosition: {x: -4.68, y: 0.96, z: -20.37623}
   m_LocalScale: {x: 34.48255, y: 27.881742, z: 8.235137}
   m_ConstrainProportionsScale: 0
   m_Children: []
