@@ -627,7 +627,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272018718}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -682,7 +682,7 @@ Transform:
   m_GameObject: {fileID: 272018718}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 17, y: 0, z: -16}
+  m_LocalPosition: {x: 15.53, y: 0, z: -16}
   m_LocalScale: {x: 20, y: 16.650002, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2734,6 +2734,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 503789970}
+  fadeInOnStart: 1
+  fadeInDuration: 0.8
 --- !u!1 &735925207
 GameObject:
   m_ObjectHideFlags: 0
@@ -3061,7 +3063,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 831453522}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3116,7 +3118,7 @@ Transform:
   m_GameObject: {fileID: 831453522}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 8, y: 0, z: -16}
+  m_LocalPosition: {x: 9.25, y: 0, z: -16}
   m_LocalScale: {x: 20, y: 16.650002, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3422,7 +3424,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041029252}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5088,7 +5090,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716102282}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5164,6 +5166,8 @@ MonoBehaviour:
   sceneName: Tutorial
   delay: 2
   fader: {fileID: 725766879}
+  requirePlayerTag: 0
+  playerTag: Player
 --- !u!1 &1721991560
 GameObject:
   m_ObjectHideFlags: 0
@@ -5531,7 +5535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1840606709
 Rigidbody:
   m_ObjectHideFlags: 0
