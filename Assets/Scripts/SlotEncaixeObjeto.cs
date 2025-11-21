@@ -1,18 +1,28 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.XR.Interaction.Toolkit; // necessário para XRGrabInteractable
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class SlotEncaixeObjeto : MonoBehaviour
 {
-    [Header("Referências")]
-    public GameObject objetoLaranja;   // Objeto laranja que desaparece junto
-    public GameObject paredeInvisivel; // Parede invisível que desaparece junto
+    [Header("Referências (originais)")]
+    public GameObject objetoLaranja;   
+    public GameObject paredeInvisivel; 
     [Tooltip("Tag do objeto que deve encaixar no slot")]
     public string tagObjetoValido = "ObjetoEspecial";
 
+    [Header("Novas referências adicionais")]
+    public GameObject luzParaAcender;     // Luz que liga quando encaixar
+    public GameObject imagemParaEsconder; // Imagem que some quando encaixar
+
+    [Tooltip("Objetos laranja extras para este slot")]
+    public GameObject[] objetosLaranjaExtras;
+
+    [Tooltip("Paredes invisíveis extras para este slot")]
+    public GameObject[] paredesInvisiveisExtras;
+
     [Header("Tempos e animação")]
-    public float duracaoDeslize = 1f;  // Tempo que o objeto leva para deslizar até o slot
-    public float tempoEspera = 3f;     // Tempo que o objeto fica encaixado antes de desaparecer
+    public float duracaoDeslize = 1f;  
+    public float tempoEspera = 3f;     
 
     [Header("World Transform final do objeto")]
     public Vector3 posFinal = new Vector3(18.0f, 1.22f, -4.18f);
@@ -24,7 +34,6 @@ public class SlotEncaixeObjeto : MonoBehaviour
     {
         if (encaixado) return;
 
-        // Verifica se o objeto que entrou é o correto
         if (!other.CompareTag(tagObjetoValido)) return;
 
         StartCoroutine(DeslizarEDestruir(other.gameObject));
@@ -34,19 +43,16 @@ public class SlotEncaixeObjeto : MonoBehaviour
     {
         encaixado = true;
 
-        // Se o objeto tiver XRGrabInteractable, solta da mão e desativa pegar de novo
         XRGrabInteractable grab = objeto.GetComponent<XRGrabInteractable>();
         if (grab != null)
         {
             if (grab.isSelected)
             {
-                // força soltar da mão
                 grab.interactionManager.CancelInteractableSelection(grab);
             }
             grab.enabled = false;
         }
 
-        // Desativa física para não ser empurrado
         Rigidbody rb = objeto.GetComponent<Rigidbody>();
         if (rb != null)
         {
@@ -55,7 +61,6 @@ public class SlotEncaixeObjeto : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
         }
 
-        // Desativa collider para não bater em nada durante o deslize
         Collider col = objeto.GetComponent<Collider>();
         if (col != null) col.enabled = false;
 
@@ -64,7 +69,6 @@ public class SlotEncaixeObjeto : MonoBehaviour
 
         float tempo = 0f;
 
-        // Desliza até a posição final
         while (tempo < duracaoDeslize)
         {
             tempo += Time.deltaTime;
@@ -76,16 +80,38 @@ public class SlotEncaixeObjeto : MonoBehaviour
             yield return null;
         }
 
-        // Garante posição final exata
         objeto.transform.position = posFinal;
         objeto.transform.rotation = rotFinal;
 
-        // Espera o tempo de encaixe
         yield return new WaitForSeconds(tempoEspera);
 
-        // Destrói primeiro o laranja e a parede, depois o objeto encaixado
+        // -------------------------------
+        //  NOVAS FUNÇÕES AQUI 
+        // -------------------------------
+
+        // Acender luz
+        if (luzParaAcender != null)
+            luzParaAcender.SetActive(true);
+
+        // Esconder imagem
+        if (imagemParaEsconder != null)
+            imagemParaEsconder.SetActive(false);
+
+        // Destruir objetos laranjas extras
+        foreach (var obj in objetosLaranjaExtras)
+            if (obj != null) Destroy(obj);
+
+        // Destruir paredes invisíveis extras
+        foreach (var parede in paredesInvisiveisExtras)
+            if (parede != null) Destroy(parede);
+
+        // -------------------------------
+        //  FUNÇÕES ORIGINAIS DO SEU SCRIPT
+        // -------------------------------
+
         if (objetoLaranja != null) Destroy(objetoLaranja);
         if (paredeInvisivel != null) Destroy(paredeInvisivel);
+
         Destroy(objeto);
     }
 }
