@@ -6,7 +6,9 @@ public class SoundTimer : MonoBehaviour
     public AudioSource audioSource;      // Arraste o AudioSource da cabra
     public AudioClip berro1;             // Primeiro som
     public AudioClip berro2;             // Segundo som
-    public AudioClip berro3;             // Terceiro som
+    public AudioClip berro3; 
+    public AudioClip berro4; 
+    public AudioClip berro5;           // Terceiro som
 
     [Header("Configuração de Tempo")]
     public float intervalo = 60f;        // Intervalo entre sons
@@ -54,6 +56,16 @@ public class SoundTimer : MonoBehaviour
             case 2:
                 if (berro3 != null)
                     audioSource.PlayOneShot(berro3);
+                break;
+
+                case 3:
+                if (berro4 != null)
+                    audioSource.PlayOneShot(berro4);
+                break;
+
+                case 4:
+                if (berro5 != null)
+                    audioSource.PlayOneShot(berro5);
                 break;
         }
 

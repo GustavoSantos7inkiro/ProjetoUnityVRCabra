@@ -412,7 +412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &33040246
 Transform:
   m_ObjectHideFlags: 0
@@ -838,7 +838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &54824671
 Transform:
   m_ObjectHideFlags: 0
@@ -6705,8 +6705,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 910263483}
   berro1: {fileID: 8300000, guid: 59f2f180feba9bb429bc050871db3bc4, type: 3}
-  berro2: {fileID: 8300000, guid: 40c7190fb737acf4fac15b676492bcaf, type: 3}
-  berro3: {fileID: 8300000, guid: 6af7ac17e11de024e907acc664fa1630, type: 3}
+  berro2: {fileID: 8300000, guid: 9d3e27f9c657a0a45a3d462739320055, type: 3}
+  berro3: {fileID: 8300000, guid: 40c7190fb737acf4fac15b676492bcaf, type: 3}
+  berro4: {fileID: 8300000, guid: 94d60f31e2052df4a9fa4245094e0af1, type: 3}
+  berro5: {fileID: 8300000, guid: 6af7ac17e11de024e907acc664fa1630, type: 3}
   intervalo: 15
 --- !u!1 &583467107
 GameObject:
@@ -7233,11 +7235,11 @@ MonoBehaviour:
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 0
+  m_SmoothPosition: 1
   m_SmoothPositionAmount: 8
   m_TightenPosition: 0.1
   m_TrackRotation: 1
-  m_SmoothRotation: 0
+  m_SmoothRotation: 1
   m_SmoothRotationAmount: 8
   m_TightenRotation: 0.1
   m_TrackScale: 1
@@ -9711,7 +9713,7 @@ Transform:
   m_GameObject: {fileID: 872206971}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -0, z: -0.0000006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16476,7 +16478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1428569906
 Transform:
   m_ObjectHideFlags: 0
@@ -21553,7 +21555,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -22019,7 +22021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1920889682
 Transform:
   m_ObjectHideFlags: 0
@@ -26033,7 +26035,7 @@ Transform:
   m_GameObject: {fileID: 7326460288322700050}
   serializedVersion: 2
   m_LocalRotation: {x: -0.009078234, y: 0.70162225, z: 0.7124852, w: -0.0029450955}
-  m_LocalPosition: {x: 3.98, y: -2.03, z: 2.48}
+  m_LocalPosition: {x: 0.752, y: -2.03, z: 3.094}
   m_LocalScale: {x: 100, y: 120, z: 3844}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26318,7 +26320,7 @@ Transform:
   m_GameObject: {fileID: 8451378882702044401}
   serializedVersion: 2
   m_LocalRotation: {x: -0.6993712, y: -0.0046348944, z: -0.009025782, w: 0.71468663}
-  m_LocalPosition: {x: 0.28, y: -1.37, z: 1.08}
+  m_LocalPosition: {x: 0.538, y: -1.703, z: 1.586}
   m_LocalScale: {x: 100, y: 120, z: 3844}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27680,7 +27682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &7061453905455065586
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28294,6 +28296,7 @@ GameObject:
   - component: {fileID: 8967542973877808463}
   - component: {fileID: 8967542973877808462}
   - component: {fileID: 8967542973877808461}
+  - component: {fileID: 8967542973877808464}
   m_Layer: 0
   m_Name: pintura.007RefeitaCerta
   m_TagString: Untagged
@@ -28708,7 +28711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &8150062219317200403
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30197,6 +30200,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &8967542973877808464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7326460288322700050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59365189a0d77274596ce769abda413f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idPeca: 23
 --- !u!33 &9015312343801287854
 MeshFilter:
   m_ObjectHideFlags: 0
