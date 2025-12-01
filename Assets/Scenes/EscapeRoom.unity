@@ -1173,7 +1173,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.0030000345, y: 0.003, z: 0.003}
+  m_Size: {x: -0.015, y: 0.004, z: 0.004}
   m_Center: {x: 0.000000017136335, y: -0, z: 0}
 --- !u!114 &61421077
 MonoBehaviour:
@@ -2644,9 +2644,9 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.006189311, y: 0.008415693, z: 0.00001}
+  m_Size: {x: 0.006189311, y: 0.008415693, z: 1.748009e-11}
   m_Center: {x: -0.0019053445, y: 0.0007921505, z: 0.00010172161}
 --- !u!23 &220185361
 MeshRenderer:
@@ -4146,7 +4146,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.003, y: 0.003, z: 0.003}
+  m_Size: {x: -0.015, y: 0.004, z: 0.004}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &399264901
 GameObject:
@@ -6154,7 +6154,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.003, y: 0.003, z: 0.003}
+  m_Size: {x: -0.015, y: 0.006, z: 0.004}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &533655072
 GameObject:
@@ -7857,9 +7857,9 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.006189311, y: 0.008415693, z: 0.00001}
+  m_Size: {x: 0.006189311, y: 0.008415693, z: 1.748009e-11}
   m_Center: {x: -0.0019053445, y: 0.0007921542, z: 0.00010172161}
 --- !u!23 &690394307
 MeshRenderer:
@@ -10479,9 +10479,9 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.01, y: 0.005522879, z: 0.00001}
+  m_Size: {x: 0.01, y: 0.005522879, z: 1.748009e-11}
   m_Center: {x: 0, y: -0.0022385616, z: 1.5636169e-12}
 --- !u!23 &924175388
 MeshRenderer:
@@ -10553,7 +10553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &954178721
 Transform:
   m_ObjectHideFlags: 0
@@ -10842,7 +10842,7 @@ MonoBehaviour:
       m_Calls: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -13601,9 +13601,9 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.0058871172, y: 0.0069553424, z: 0.00001}
+  m_Size: {x: 0.0058871172, y: 0.0069553424, z: 1.748009e-11}
   m_Center: {x: 0.0020564413, y: 0.0015223228, z: -0.00012940205}
 --- !u!23 &1119333387
 MeshRenderer:
@@ -14094,7 +14094,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.003, y: 0.003, z: 0.003}
+  m_Size: {x: -0.015, y: 0.005, z: 0.005}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1143950566
 GameObject:
@@ -14850,7 +14850,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.003, y: 0.003, z: 0.003}
+  m_Size: {x: -0.015, y: 0.004, z: 0.004}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1238915195
 GameObject:
@@ -16297,7 +16297,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.003, y: 0.003, z: 0.003}
+  m_Size: {x: -0.01, y: 0.007, z: 0.004}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1413047405
 MonoBehaviour:
@@ -27219,7 +27219,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -27456,7 +27456,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -29545,7 +29545,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -29806,7 +29806,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -30131,7 +30131,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -30434,7 +30434,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
