@@ -9736,7 +9736,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.0058871172, y: 0.0069553405, z: 4.5122924e-12}
   m_Center: {x: 0.0020564413, y: 0.001522341, z: -0.00012940205}
@@ -10553,7 +10553,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &954178721
 Transform:
   m_ObjectHideFlags: 0
@@ -19524,7 +19524,7 @@ MonoBehaviour:
       m_Calls: []
   m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
-  m_UseDynamicAttach: 1
+  m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
@@ -20825,7 +20825,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.009999999, y: 0.005522877, z: 1.7480092e-11}
   m_Center: {x: -6.2544674e-12, y: -0.0022385684, z: -2.9343514e-11}
@@ -26035,7 +26035,7 @@ Transform:
   m_GameObject: {fileID: 7326460288322700050}
   serializedVersion: 2
   m_LocalRotation: {x: -0.009078234, y: 0.70162225, z: 0.7124852, w: -0.0029450955}
-  m_LocalPosition: {x: 0.752, y: -2.03, z: 3.094}
+  m_LocalPosition: {x: 1.5056154, y: -1.64, z: 1.922334}
   m_LocalScale: {x: 100, y: 120, z: 3844}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30019,8 +30019,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.009999999, y: 0.005522877, z: 1.7480092e-11}
-  m_Center: {x: -6.2544674e-12, y: -0.0022385684, z: -2.9343514e-11}
+  m_Size: {x: 0.009999999, y: 0.005522881, z: 0.00001}
+  m_Center: {x: -1.9973636e-12, y: -0.0022385656, z: -3.5204464e-11}
 --- !u!114 &8967542973877808462
 MonoBehaviour:
   m_ObjectHideFlags: 0
