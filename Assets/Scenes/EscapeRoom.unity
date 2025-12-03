@@ -746,8 +746,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.0080000665, y: 0.05, z: 0.037879925}
-  m_Center: {x: 0.009999884, y: -0.01999998, z: 0.014999995}
+  m_Size: {x: 0.010665295, y: 0.050000004, z: 0.037879925}
+  m_Center: {x: 0.011332501, y: -0.019999979, z: 0.014999995}
 --- !u!1 &53881838
 GameObject:
   m_ObjectHideFlags: 0
@@ -9274,8 +9274,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.008000066, y: 0.055, z: 0.037879925}
-  m_Center: {x: 0.009999884, y: -0.019999983, z: 0.014999995}
+  m_Size: {x: 0.010057679, y: 0.055000007, z: 0.037879918}
+  m_Center: {x: 0.008971058, y: -0.01999998, z: 0.014999999}
 --- !u!1 &826221863
 GameObject:
   m_ObjectHideFlags: 0
@@ -10340,8 +10340,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.008000069, y: 0.04, z: 0.037879925}
-  m_Center: {x: 0.0099998815, y: -0.009999985, z: 0.014999995}
+  m_Size: {x: 0.009613144, y: 0.04, z: 0.03787993}
+  m_Center: {x: 0.009193345, y: -0.009999983, z: 0.014999977}
 --- !u!1 &923937611
 GameObject:
   m_ObjectHideFlags: 0
@@ -10848,17 +10848,17 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 1
+  m_SmoothPosition: 0
   m_SmoothPositionAmount: 8
   m_TightenPosition: 0.1
   m_TrackRotation: 1
-  m_SmoothRotation: 1
+  m_SmoothRotation: 0
   m_SmoothRotationAmount: 8
   m_TightenRotation: 0.1
   m_TrackScale: 1
@@ -15327,8 +15327,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.008000069, y: 0.04, z: 0.037879925}
-  m_Center: {x: 0.0099998815, y: -0.009999985, z: 0.014999995}
+  m_Size: {x: 0.009982932, y: 0.04, z: 0.03787993}
+  m_Center: {x: 0.009008449, y: -0.009999987, z: 0.014999973}
 --- !u!1 &1302310493
 GameObject:
   m_ObjectHideFlags: 0
@@ -19530,17 +19530,17 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 1
+  m_SmoothPosition: 0
   m_SmoothPositionAmount: 8
   m_TightenPosition: 0.1
   m_TrackRotation: 1
-  m_SmoothRotation: 1
+  m_SmoothRotation: 0
   m_SmoothRotationAmount: 8
   m_TightenRotation: 0.1
   m_TrackScale: 1
@@ -20060,8 +20060,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.0080000665, y: 0.05, z: 0.037879925}
-  m_Center: {x: 0.009999884, y: -0.01999998, z: 0.014999995}
+  m_Size: {x: 0.010142013, y: 0.050000004, z: 0.037879925}
+  m_Center: {x: 0.0089289, y: -0.019999979, z: 0.014999994}
 --- !u!1001 &1704412683
 PrefabInstance:
   m_ObjectHideFlags: 0
